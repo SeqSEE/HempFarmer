@@ -1,5 +1,6 @@
 package com.mch.hempfarmer.block;
 
+import java.util.List;
 import java.util.Random;
 
 import com.mch.hempfarmer.Reference;
@@ -27,26 +28,28 @@ public class BlockCropsSativa extends BlockCrops{
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
 		this.setUnlocalizedName(this.getRegistryName().toString());
-		IBlockState state = this.getDefaultState() ;
-		this.setDefaultState(state);
 		this.setCreativeTab(HFCreativeTabs.HFTab);
 	}
 	
+	@Override
 	protected boolean canSustainBush(IBlockState state)
     {
         return state.getBlock() == Blocks.FARMLAND;
     }
 
+	@Override
     protected PropertyInteger getAgeProperty()
     {
         return AGE;
     }
     
+	@Override
     protected int getAge(IBlockState state)
     {
         return ((Integer)state.getValue(this.getAgeProperty())).intValue();
     }
     
+	@Override
     protected int getBonemealAgeIncrease(World worldIn)
     {
         return MathHelper.getRandomIntegerInRange(worldIn.rand, 2, 5);
@@ -107,16 +110,31 @@ public class BlockCropsSativa extends BlockCrops{
         return f;
     }
 	
+    @Override
 	protected Item getSeed(){
-        return HFItems.seeds_sativa;
+		Item seed ;
+		Random random = new Random();
+		int x = random.nextInt(100) + 1;
+		if (x > 97){
+			boolean y = random.nextBoolean();
+			seed = HFItems.seeds_indica; 
+		}
+		else if (x > 90){
+			seed = HFItems.seeds_hemp;
+		}
+		else {
+			seed = HFItems.seeds_sativa;
+		}
+		return seed;
     }
 
+    @Override
     protected Item getCrop(){
         return HFItems.raw_hemp;
     }
     
     @Override
-    public java.util.List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
+    public List<ItemStack> getDrops(net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
         java.util.List<ItemStack> ret = super.getDrops(world, pos, state, fortune);
         int age = getAge(state);
         Random rand = world instanceof World ? ((World)world).rand : new Random();
@@ -134,6 +152,7 @@ public class BlockCropsSativa extends BlockCrops{
         return ret;
     }
     
+    @Override
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, new IProperty[] {AGE});

@@ -21,6 +21,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -30,6 +31,8 @@ public class HFItems extends Items{
 	public static Item icon;	
 	//Materials
 	public static ToolMaterial RESIN = EnumHelper.addToolMaterial("RESIN", 3, 30, 6.0F, 3.0F, 30);
+	public static ArmorMaterial BURLAP = addArmorMaterial("BURLAP", "hempfarmer:burlap", 7, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
+	public static ArmorMaterial RESIN_BURLAP = addArmorMaterial("RESIN_BURLAP", "hempfarmer:resin_burlap", 7, new int[]{2, 3, 4, 2}, 20, SoundEvents.BLOCK_STONE_PRESSPLATE_CLICK_ON, 0.0F);
 	//Regular Items
 	public static Item raw_hemp;
 	public static Item dry_hemp;
@@ -72,14 +75,14 @@ public class HFItems extends Items{
 		seeds_indica = new HFSeedsIndica("seeds_indica", HFBlocks.indica_crop, Blocks.FARMLAND, 1);
 		seeds_sativa = new HFSeedsSativa("seeds_sativa", HFBlocks.sativa_crop, Blocks.FARMLAND, 1);
 		//Armors
-		burlap_boots = new HFArmor("burlap_boots", HFArmor.BURLAP, 1, EntityEquipmentSlot.FEET);
-		burlap_leggings = new HFArmor("burlap_leggings", HFArmor.BURLAP, 1, EntityEquipmentSlot.LEGS);
-		burlap_chestplate = new HFArmor("burlap_chestplate", HFArmor.BURLAP, 1, EntityEquipmentSlot.CHEST);
-		burlap_helmet = new HFArmor("burlap_helmet", HFArmor.BURLAP, 1, EntityEquipmentSlot.HEAD);
-		resin_burlap_boots = new HFArmor("resin_burlap_boots", HFArmor.RESIN_BURLAP, 1, EntityEquipmentSlot.FEET);
-		resin_burlap_leggings = new HFArmor("resin_burlap_leggings", HFArmor.RESIN_BURLAP, 1, EntityEquipmentSlot.LEGS);
-		resin_burlap_chestplate = new HFArmor("resin_burlap_chestplate", HFArmor.RESIN_BURLAP, 1, EntityEquipmentSlot.CHEST);
-		resin_burlap_helmet = new HFArmor("resin_burlap_helmet", HFArmor.RESIN_BURLAP, 1, EntityEquipmentSlot.HEAD);
+		burlap_boots = new HFArmor("burlap_boots", BURLAP, 1, EntityEquipmentSlot.FEET);
+		burlap_leggings = new HFArmor("burlap_leggings", BURLAP, 1, EntityEquipmentSlot.LEGS);
+		burlap_chestplate = new HFArmor("burlap_chestplate", BURLAP, 1, EntityEquipmentSlot.CHEST);
+		burlap_helmet = new HFArmor("burlap_helmet", BURLAP, 1, EntityEquipmentSlot.HEAD);
+		resin_burlap_boots = new HFArmor("resin_burlap_boots", RESIN_BURLAP, 1, EntityEquipmentSlot.FEET);
+		resin_burlap_leggings = new HFArmor("resin_burlap_leggings", RESIN_BURLAP, 1, EntityEquipmentSlot.LEGS);
+		resin_burlap_chestplate = new HFArmor("resin_burlap_chestplate", RESIN_BURLAP, 1, EntityEquipmentSlot.CHEST);
+		resin_burlap_helmet = new HFArmor("resin_burlap_helmet", RESIN_BURLAP, 1, EntityEquipmentSlot.HEAD);
 		//Weapons
 		resin_sword = new HFSword("resin_sword", RESIN);
 	}
@@ -148,6 +151,10 @@ public class HFItems extends Items{
 	public static void registerRender(Item item){
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     	renderItem.getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName().toString(), "inventory"));
+	}
+	
+	private static ItemArmor.ArmorMaterial addArmorMaterial(String enumName, String textureName, int durability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness) {
+		return EnumHelper.addEnum(ItemArmor.ArmorMaterial.class, enumName, new Class<?>[]{String.class, int.class, int[].class, int.class, SoundEvent.class, float.class}, textureName, durability, reductionAmounts, enchantability, soundOnEquip, toughness);
 	}
 	
 	

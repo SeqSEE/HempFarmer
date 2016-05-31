@@ -28,26 +28,28 @@ public class BlockCropsIndica extends BlockCrops{
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
 		this.setUnlocalizedName(this.getRegistryName().toString());
-		IBlockState state = this.getDefaultState() ;
-		this.setDefaultState(state);
 		this.setCreativeTab(HFCreativeTabs.HFTab);
 	}
 	
+	@Override
 	protected boolean canSustainBush(IBlockState state)
     {
         return state.getBlock() == Blocks.FARMLAND;
     }
-
+	
+	@Override
     protected PropertyInteger getAgeProperty()
     {
         return AGE;
     }
     
+	@Override
     protected int getAge(IBlockState state)
     {
         return ((Integer)state.getValue(this.getAgeProperty())).intValue();
     }
     
+	@Override
     protected int getBonemealAgeIncrease(World worldIn)
     {
         return MathHelper.getRandomIntegerInRange(worldIn.rand, 2, 5);
@@ -108,10 +110,25 @@ public class BlockCropsIndica extends BlockCrops{
         return f;
     }
 	
+    @Override
 	protected Item getSeed(){
-        return HFItems.seeds_indica;
+		Item seed ;
+		Random random = new Random();
+		int x = random.nextInt(100) + 1;
+		if (x > 97){
+			boolean y = random.nextBoolean();
+			seed = HFItems.seeds_sativa; 
+		}
+		else if (x > 90){
+			seed = HFItems.seeds_hemp;
+		}
+		else {
+			seed = HFItems.seeds_indica;
+		}
+		return seed;
     }
 
+    @Override
     protected Item getCrop(){
         return HFItems.raw_hemp;
     }
@@ -128,13 +145,14 @@ public class BlockCropsIndica extends BlockCrops{
             for (int i = 0; i < 3 + fortune; ++i){
                 if (rand.nextInt(2 * getMaxAge()) <= age){
                     ret.add(new ItemStack(this.getSeed(), 1, 0));
-                    ret.add(new ItemStack(this.getCrop(), 2, 0));
+                    ret.add(new ItemStack(this.getCrop(), 1, 0));
                 }
             }
         }
         return ret;
     }
     
+    @Override
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, new IProperty[] {AGE});
