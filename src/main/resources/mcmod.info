@@ -1,0 +1,14 @@
+[
+{
+  "modid": "hempfarmer",
+  "name": "HempFarmer",
+  "description": "Adds hemp to Minecraft.",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["SeqSEE"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

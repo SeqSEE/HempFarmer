@@ -1,0 +1,25 @@
+itemGroup.hempfarmer=HempFarmer
+
+item.hempfarmer:seeds_hemp.name=Hemp Seeds
+item.hempfarmer:seeds_indica.name=Indica Seeds
+item.hempfarmer:seeds_sativa.name=Sativa Seeds
+item.hempfarmer:raw_hemp.name=Hemp
+item.hempfarmer:dry_hemp.name=Dried Hemp
+item.hempfarmer:burlap.name=Burlap
+item.hempfarmer:resin_burlap.name=Resin Burlap
+item.hempfarmer:oily_burlap.name=Oily Burlap
+item.hempfarmer:hemp_oil.name=Hemp Oil
+item.hempfarmer:resin.name=Hemp Resin
+item.hempfarmer:burlap_boots.name=Burlap Boots
+item.hempfarmer:burlap_leggings.name=Burlap Leggings
+item.hempfarmer:burlap_chestplate.name=Burlap Chestplate
+item.hempfarmer:burlap_helmet.name=Burlap Helmet
+item.hempfarmer:resin_burlap_boots.name=Resin Burlap Boots
+item.hempfarmer:resin_burlap_leggings.name=Resin Burlap Leggings
+item.hempfarmer:resin_burlap_chestplate.name=Resin Burlap Chestplate
+item.hempfarmer:resin_burlap_helmet.name=Resin Burlap Helmet
+item.hempfarmer:resin_sword.name=Resin Sword
+
+tile.hempfarmer:hemp_crop.name=Hemp Seedling
+tile.hempfarmer:indica_crop.name=Indica Seedling
+tile.hempfarmer:sativa_crop.name=Sativa Seedling
