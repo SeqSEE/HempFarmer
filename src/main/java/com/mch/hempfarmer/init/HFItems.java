@@ -36,9 +36,9 @@ public class HFItems extends Items{
 	public static Item resin = new HFItem("resin");
 	
 	//Seeds
-	public static Item seeds_hemp = new HFSeeds("seeds_hemp", HFBlocks.hemp_crop);
-	public static Item seeds_indica = new HFSeeds("seeds_indica", HFBlocks.indica_crop);
-	public static Item seeds_sativa = new HFSeeds("seeds_sativa", HFBlocks.sativa_crop);
+	public static Item seeds_hemp = new HFSeeds("seeds_hemp", HFBlocks.hemp_crop, 4);
+	public static Item seeds_indica = new HFSeeds("seeds_indica", HFBlocks.indica_crop, 1);
+	public static Item seeds_sativa = new HFSeeds("seeds_sativa", HFBlocks.sativa_crop, 1);
 		
 	//Armors
 	public static Item burlap_boots = new HFArmor("burlap_boots", HFArmor.BURLAP, 1, EntityEquipmentSlot.FEET);
