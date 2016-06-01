@@ -1,8 +1,8 @@
 package com.mch.hempfarmer.creativetab;
 
-import com.mch.hempfarmer.HFIcon;
 import com.mch.hempfarmer.Reference;
 import com.mch.hempfarmer.init.HFItems;
+import com.mch.hempfarmer.item.HFIcon;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

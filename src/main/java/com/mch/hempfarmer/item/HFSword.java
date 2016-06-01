@@ -2,8 +2,10 @@ package com.mch.hempfarmer.item;
 
 import com.mch.hempfarmer.Reference;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
+import com.mch.hempfarmer.init.HFItems;
 
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
@@ -25,6 +27,11 @@ public class HFSword extends ItemSword{
 		this.setCreativeTab(HFCreativeTabs.HFTab);
 		this.setMaxDamage(material.getMaxUses());
 		this.attackDamage = 3.0F + this.material.getDamageVsEntity();
+		addToItems(this);
+	}
+
+	private void addToItems(Item item) {
+		HFItems.items.add(item);
 	}
 
 

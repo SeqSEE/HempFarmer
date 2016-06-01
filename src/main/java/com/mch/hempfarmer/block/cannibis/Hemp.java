@@ -1,9 +1,10 @@
-package com.mch.hempfarmer.block;
+package com.mch.hempfarmer.block.cannibis;
 
 import java.util.List;
 import java.util.Random;
 
 import com.mch.hempfarmer.Reference;
+import com.mch.hempfarmer.block.HFBlockCrops;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
 import com.mch.hempfarmer.init.HFItems;
 
@@ -22,19 +23,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockCropsHemp extends BlockCrops{
+public class Hemp extends HFBlockCrops{
 
-
-	public BlockCropsHemp(String name){
-		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
-		this.setRegistryName(location);
-		this.setUnlocalizedName(name);
-		this.setCreativeTab(HFCreativeTabs.HFTab);
+    public Hemp(String name) {
+		super(name);
+		
 	}
-	
 
-	
-    @Override
+	@Override
 	protected Item getSeed(){
 		Item seed ;
 		Random random = new Random();

@@ -3,10 +3,12 @@ package com.mch.hempfarmer.item;
 import com.mch.hempfarmer.Reference;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
 import com.mch.hempfarmer.init.HFBlocks;
+import com.mch.hempfarmer.init.HFItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
@@ -29,7 +31,12 @@ public class HFSeeds extends ItemSeeds implements net.minecraftforge.common.IPla
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFTab);
 		register(this, weight);
-	 }
+		addToItems(this);
+	}
+
+	private void addToItems(Item item) {
+		HFItems.items.add(item);
+	}
 			 
 
  	private void register(HFSeeds seeds, int weight) {

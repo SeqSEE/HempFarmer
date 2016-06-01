@@ -3,9 +3,9 @@ package com.mch.hempfarmer.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mch.hempfarmer.block.BlockCropsHemp;
-import com.mch.hempfarmer.block.BlockCropsIndica;
-import com.mch.hempfarmer.block.BlockCropsSativa;
+import com.mch.hempfarmer.block.cannibis.Hemp;
+import com.mch.hempfarmer.block.cannibis.Indica;
+import com.mch.hempfarmer.block.cannibis.Sativa;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -18,16 +18,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class HFBlocks extends Blocks{
 	
-
-	public static Block hemp_crop = new BlockCropsHemp("hemp_crop");
-	public static Block indica_crop = new BlockCropsIndica("indica_crop");
-	public static Block sativa_crop = new BlockCropsSativa("sativa_crop");
+	public static List<Block> blocks = new ArrayList();
+	
+	public static Block hemp_crop = new Hemp("hemp_crop");
+	public static Block indica_crop = new Indica("indica_crop");
+	public static Block sativa_crop = new Sativa("sativa_crop");
 	
 	public static List<Block> blockList(){
-		List<Block> blocks = new ArrayList();
-		blocks.add(hemp_crop);
-		blocks.add(indica_crop);
-		blocks.add(sativa_crop);
 		return blocks;		
 	}
 		

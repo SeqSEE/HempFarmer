@@ -1,9 +1,10 @@
-package com.mch.hempfarmer.block;
+package com.mch.hempfarmer.block.cannibis;
 
 import java.util.List;
 import java.util.Random;
 
 import com.mch.hempfarmer.Reference;
+import com.mch.hempfarmer.block.HFBlockCrops;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
 import com.mch.hempfarmer.init.HFItems;
 
@@ -21,21 +22,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockCropsSativa extends BlockCrops{
-		
-	public BlockCropsSativa(String name){
-		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
-		this.setRegistryName(location);
-		this.setUnlocalizedName(name);
-		this.setCreativeTab(HFCreativeTabs.HFTab);
-	}
+public class Indica extends HFBlockCrops{
 	
+	public Indica(String name) {
+		super(name);
+	}
+
 	@Override
 	protected boolean canSustainBush(IBlockState state)
     {
         return state.getBlock() == Blocks.FARMLAND;
     }
-
+	
 	@Override
     protected PropertyInteger getAgeProperty()
     {
@@ -116,13 +114,13 @@ public class BlockCropsSativa extends BlockCrops{
 		int x = random.nextInt(100) + 1;
 		if (x > 97){
 			boolean y = random.nextBoolean();
-			seed = HFItems.seeds_indica; 
+			seed = HFItems.seeds_sativa; 
 		}
 		else if (x > 90){
 			seed = HFItems.seeds_hemp;
 		}
 		else {
-			seed = HFItems.seeds_sativa;
+			seed = HFItems.seeds_indica;
 		}
 		return seed;
     }
@@ -144,7 +142,7 @@ public class BlockCropsSativa extends BlockCrops{
             for (int i = 0; i < 3 + fortune; ++i){
                 if (rand.nextInt(2 * getMaxAge()) <= age){
                     ret.add(new ItemStack(this.getSeed(), 1, 0));
-                    ret.add(new ItemStack(this.getCrop(), 2, 0));
+                    ret.add(new ItemStack(this.getCrop(), 1, 0));
                 }
             }
         }

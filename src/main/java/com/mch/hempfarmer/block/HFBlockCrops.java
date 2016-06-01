@@ -2,18 +2,24 @@ package com.mch.hempfarmer.block;
 
 import com.mch.hempfarmer.Reference;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
+import com.mch.hempfarmer.init.HFBlocks;
+import com.mch.hempfarmer.init.HFItems;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.util.ResourceLocation;
 
-public class HFBlock extends Block{
+public class HFBlockCrops extends BlockCrops{
 	
-	public HFBlock(String name, Material materialIn){
-		super(materialIn);
+	public HFBlockCrops(String name){
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFTab);
+		addToBlocks(this);
 	}
+
+	private void addToBlocks(BlockCrops block) {
+		HFBlocks.blocks.add(block);
+	}
+
 }

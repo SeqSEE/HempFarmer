@@ -3,11 +3,12 @@ package com.mch.hempfarmer.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mch.hempfarmer.HFIcon;
 import com.mch.hempfarmer.item.HFArmor;
+import com.mch.hempfarmer.item.HFIcon;
 import com.mch.hempfarmer.item.HFItem;
 import com.mch.hempfarmer.item.HFSeeds;
 import com.mch.hempfarmer.item.HFSword;
+import com.mch.hempfarmer.item.Joint;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
@@ -15,14 +16,16 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
 
 public class HFItems extends Items{
 	
+	public static List<Item> items = new ArrayList();
+	/*Joints
+	public static Item sativa_joint = new Joint("sativa_joint");
+	*/
 	//HempFarmer Icon
 	public static Item leaf = new HFIcon("leaf");
 	
@@ -54,27 +57,6 @@ public class HFItems extends Items{
 	public static Item resin_sword = new HFSword("resin_sword", HFSword.RESIN);
 	
 	public static List<Item> itemList(){
-		List<Item> items = new ArrayList();
-		items.add(leaf);
-		items.add(raw_hemp);
-		items.add(dry_hemp);
-		items.add(burlap);
-		items.add(oily_burlap);
-		items.add(resin_burlap);
-		items.add(hemp_oil);
-		items.add(resin);
-		items.add(seeds_hemp);
-		items.add(seeds_indica);
-		items.add(seeds_sativa);
-		items.add(burlap_boots);
-		items.add(burlap_leggings);
-		items.add(burlap_chestplate);
-		items.add(burlap_helmet);
-		items.add(resin_burlap_boots);
-		items.add(resin_burlap_leggings);
-		items.add(resin_burlap_chestplate);
-		items.add(resin_burlap_helmet);
-		items.add(resin_sword);
 		return items;
 	}
 
