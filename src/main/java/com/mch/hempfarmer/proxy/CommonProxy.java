@@ -9,23 +9,21 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent preEvent) {
-		HFItems.init();
-		HFBlocks.init();
-		registers();		
+		register();		
 	}
 
 	public void init(FMLInitializationEvent event) {
-		registerRenders();
+		registerRender();
 	}
 	
-	public void registers(){
-		HFBlocks.registers();
-		HFItems.registers();
+	public void register(){
+		HFBlocks.register();
+		HFItems.register();
 		HFRecipes.registerRecipes();
 	}
 	
-	public void registerRenders(){
-		//DO NOT REGISTER RENDERS HERE!!!
+	public void registerRender(){
+		//DO NOT REGISTER RENDER HERE!!!
 	}
 
 }

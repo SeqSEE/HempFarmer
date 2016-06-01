@@ -16,9 +16,9 @@ public class ClientProxy extends CommonProxy{
 	}
 	
 	@Override
-	public void registerRenders(){
-		HFItems.registerRenders();
-		HFBlocks.registerRenders();
+	public void registerRender(){
+		HFItems.registerRender();
+		HFBlocks.registerRender();
 	}
 
 }

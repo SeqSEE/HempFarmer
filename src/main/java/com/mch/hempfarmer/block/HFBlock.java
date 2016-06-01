@@ -8,14 +8,12 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;
 
 public class HFBlock extends Block{
-
+	
 	public HFBlock(String name, Material materialIn){
 		super(materialIn);
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
-		this.setUnlocalizedName(this.getRegistryName().toString());
+		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFTab);
-		
 	}
-
 }

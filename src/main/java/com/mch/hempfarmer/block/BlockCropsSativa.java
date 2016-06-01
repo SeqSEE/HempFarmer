@@ -14,7 +14,6 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -27,7 +26,7 @@ public class BlockCropsSativa extends BlockCrops{
 	public BlockCropsSativa(String name){
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
-		this.setUnlocalizedName(this.getRegistryName().toString());
+		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFTab);
 	}
 	

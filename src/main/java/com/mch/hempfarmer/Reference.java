@@ -1,7 +1,5 @@
 package com.mch.hempfarmer;
 
-import java.util.ArrayList;
-
 import net.minecraft.item.Item;
 
 public class Reference {
