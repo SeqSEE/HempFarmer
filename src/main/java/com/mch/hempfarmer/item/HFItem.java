@@ -10,7 +10,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class HFItem extends Item{
 	
-	public HFItem(String name) {
+	public HFItem(String name, int maxStack) {
+		this.setMaxStackSize(maxStack);
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
 		this.setUnlocalizedName(name);

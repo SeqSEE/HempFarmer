@@ -19,6 +19,7 @@ item.resin_burlap_leggings.name=Resin Burlap Leggings
 item.resin_burlap_chestplate.name=Resin Burlap Chestplate
 item.resin_burlap_helmet.name=Resin Burlap Helmet
 item.resin_sword.name=Resin Sword
+item.resin_shield.name=Resin Shield
 
 tile.hemp_crop.name=Hemp Seedling
 tile.indica_crop.name=Indica Seedling

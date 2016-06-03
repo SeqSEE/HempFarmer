@@ -2,11 +2,13 @@
 {
   "modid": "hempfarmer",
   "name": "HempFarmer",
-  "description": "Adds hemp to Minecraft.",
+  "description": "Adds hemp to Minecraft!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["SeqSEE"],
-  "credits": "",
+  "credits": "The Forge and FML guys/girls, for making that example yo!!! And any other opensource free license people out there.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

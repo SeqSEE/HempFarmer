@@ -64,7 +64,7 @@ public class Hemp extends HFBlockCrops{
             for (int i = 0; i < 3 + fortune; ++i){
                 if (rand.nextInt(2 * getMaxAge()) <= age){
                     ret.add(new ItemStack(this.getSeed(), 1, 0));
-                    ret.add(new ItemStack(this.getCrop(), 2, 0));
+                    ret.add(new ItemStack(this.getCrop(), rand.nextInt(4), 0));
                 }
             }
         }

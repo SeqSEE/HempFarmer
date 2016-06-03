@@ -31,6 +31,11 @@ public class HFRecipes {
 		GameRegistry.addRecipe(new ItemStack(HFItems.burlap_leggings), "bbb", "b b", "b b", 'b', new ItemStack(HFItems.burlap));
 		GameRegistry.addRecipe(new ItemStack(HFItems.burlap_chestplate), "b b", "bbb", "bbb", 'b', new ItemStack(HFItems.burlap));
 		GameRegistry.addRecipe(new ItemStack(HFItems.burlap_helmet), "bbb", "b b", "   ", 'b', new ItemStack(HFItems.burlap));
+		//Resin Armor//- Shaped Recipes
+		GameRegistry.addRecipe(new ItemStack(HFItems.resin_boots), "   ", "r r", "r r", 'r', new ItemStack(HFItems.resin));
+		GameRegistry.addRecipe(new ItemStack(HFItems.resin_leggings), "rrr", "r r", "r r", 'r', new ItemStack(HFItems.resin));
+		GameRegistry.addRecipe(new ItemStack(HFItems.resin_chestplate), "r r", "rrr", "rrr", 'r', new ItemStack(HFItems.resin));
+		GameRegistry.addRecipe(new ItemStack(HFItems.resin_helmet), "rrr", "r r", "   ", 'r', new ItemStack(HFItems.resin));
 		//Resin Burlap Armor//- Shaped Recipes
 		GameRegistry.addRecipe(new ItemStack(HFItems.resin_burlap_boots), "   ", "b b", "b b", 'b', new ItemStack(HFItems.resin_burlap));
 		GameRegistry.addRecipe(new ItemStack(HFItems.resin_burlap_leggings), "bbb", "b b", "b b", 'b', new ItemStack(HFItems.resin_burlap));
@@ -38,6 +43,8 @@ public class HFRecipes {
 		GameRegistry.addRecipe(new ItemStack(HFItems.resin_burlap_helmet), "bbb", "b b", "   ", 'b', new ItemStack(HFItems.resin_burlap));
 		//Resin Sword//- Shaped Recipe
 		GameRegistry.addRecipe(new ItemStack(HFItems.resin_sword), " r ", " r ", " s ", 'r', new ItemStack(HFItems.resin), 's', new ItemStack(Items.STICK));
+		//Resin Shield//- Shaped Recipe
+		GameRegistry.addRecipe(new ItemStack(HFItems.resin_shield), "rrr", "rrr", " r ", 'r', new ItemStack(HFItems.resin));
 
 	}
 }

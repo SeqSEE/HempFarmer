@@ -6,6 +6,7 @@ import java.util.List;
 import com.mch.hempfarmer.item.HFArmor;
 import com.mch.hempfarmer.item.HFIcon;
 import com.mch.hempfarmer.item.HFItem;
+import com.mch.hempfarmer.item.HFResinShield;
 import com.mch.hempfarmer.item.HFSeeds;
 import com.mch.hempfarmer.item.HFSword;
 import com.mch.hempfarmer.item.Joint;
@@ -30,13 +31,13 @@ public class HFItems extends Items{
 	public static Item leaf = new HFIcon("leaf");
 	
 	//Regular Items
-	public static Item raw_hemp = new HFItem("raw_hemp");
-	public static Item dry_hemp = new HFItem("dry_hemp");
-	public static Item burlap = new HFItem("burlap");
-	public static Item oily_burlap = new HFItem("oily_burlap");
-	public static Item resin_burlap = new HFItem("resin_burlap");
-	public static Item hemp_oil = new HFItem("hemp_oil");
-	public static Item resin = new HFItem("resin");
+	public static Item raw_hemp = new HFItem("raw_hemp", 64);
+	public static Item dry_hemp = new HFItem("dry_hemp", 64);
+	public static Item burlap = new HFItem("burlap", 64);
+	public static Item oily_burlap = new HFItem("oily_burlap", 64);
+	public static Item resin_burlap = new HFItem("resin_burlap", 64);
+	public static Item hemp_oil = new HFItem("hemp_oil", 1);
+	public static Item resin = new HFItem("resin", 64);
 	
 	//Seeds
 	public static Item seeds_hemp = new HFSeeds("seeds_hemp", HFBlocks.hemp_crop, 4);
@@ -48,11 +49,16 @@ public class HFItems extends Items{
 	public static Item burlap_leggings = new HFArmor("burlap_leggings", HFArmor.BURLAP, 1, EntityEquipmentSlot.LEGS);
 	public static Item burlap_chestplate = new HFArmor("burlap_chestplate", HFArmor.BURLAP, 1, EntityEquipmentSlot.CHEST);
 	public static Item burlap_helmet = new HFArmor("burlap_helmet", HFArmor.BURLAP, 1, EntityEquipmentSlot.HEAD);
+	public static Item resin_boots = new HFArmor("resin_boots", HFArmor.RESIN, 1, EntityEquipmentSlot.FEET);
+	public static Item resin_leggings = new HFArmor("resin_leggings", HFArmor.RESIN, 1, EntityEquipmentSlot.LEGS);
+	public static Item resin_chestplate = new HFArmor("resin_chestplate", HFArmor.RESIN, 1, EntityEquipmentSlot.CHEST);
+	public static Item resin_helmet = new HFArmor("resin_helmet", HFArmor.RESIN, 1, EntityEquipmentSlot.HEAD);
 	public static Item resin_burlap_boots = new HFArmor("resin_burlap_boots", HFArmor.RESIN_BURLAP, 1, EntityEquipmentSlot.FEET);
 	public static Item resin_burlap_leggings = new HFArmor("resin_burlap_leggings", HFArmor.RESIN_BURLAP, 1, EntityEquipmentSlot.LEGS);
 	public static Item resin_burlap_chestplate = new HFArmor("resin_burlap_chestplate", HFArmor.RESIN_BURLAP, 1, EntityEquipmentSlot.CHEST);
 	public static Item resin_burlap_helmet = new HFArmor("resin_burlap_helmet", HFArmor.RESIN_BURLAP, 1, EntityEquipmentSlot.HEAD);
-	
+
+	public static Item resin_shield = new HFResinShield("resin_shield");
 	//Weapons
 	public static Item resin_sword = new HFSword("resin_sword", HFSword.RESIN);
 	
