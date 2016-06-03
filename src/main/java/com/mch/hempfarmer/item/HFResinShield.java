@@ -28,7 +28,6 @@ public class HFResinShield extends ItemShield{
 	        ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 			this.setRegistryName(location);
 			this.setUnlocalizedName(name);
-			this.setCreativeTab(HFCreativeTabs.HFTab);
 			addToItems(this);
 	        this.setMaxDamage(336);
 	        this.addPropertyOverride(new ResourceLocation("blocking"), new IItemPropertyGetter()
@@ -53,7 +52,7 @@ public class HFResinShield extends ItemShield{
 	@Override
 	@SideOnly(Side.CLIENT)
     public CreativeTabs getCreativeTab(){
-        return HFCreativeTabs.HFTab;
+        return HFCreativeTabs.HFCombat;
     }
 	
 	@Override

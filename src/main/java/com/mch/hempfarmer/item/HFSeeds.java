@@ -29,7 +29,7 @@ public class HFSeeds extends ItemSeeds implements net.minecraftforge.common.IPla
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(HFCreativeTabs.HFTab);
+		this.setCreativeTab(HFCreativeTabs.HFCrops);
 		register(this, weight);
 		addToItems(this);
 	}

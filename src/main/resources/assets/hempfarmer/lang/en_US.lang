@@ -1,5 +1,6 @@
-itemGroup.hempfarmer=HempFarmer
-
+itemGroup.combat=HempFarmer:Combat
+itemGroup.crops=HempFarmer:Crops
+itemGroup.materials=HempFarmer:Materials
 item.seeds_hemp.name=Hemp Seeds
 item.seeds_indica.name=Indica Seeds
 item.seeds_sativa.name=Sativa Seeds
@@ -27,4 +28,4 @@ item.resin_shield.name=Resin Shield
 
 tile.hemp_crop.name=Hemp Seedling
 tile.indica_crop.name=Indica Seedling
-tile.sativa_crop.name=Sativa Seedling
+tile.sativa_crop.name=Sativa Seedlingee

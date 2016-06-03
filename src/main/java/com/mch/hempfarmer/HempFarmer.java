@@ -1,16 +1,13 @@
 package com.mch.hempfarmer;
 
-import com.mch.hempfarmer.config.HFConfig;
 import com.mch.hempfarmer.proxy.CommonProxy;
+import com.mch.hempfarmer.util.Config;
+import com.mch.hempfarmer.util.VersionChecker;
 
-import net.minecraft.client.gui.ChatLine;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
-import net.minecraftforge.client.event.RenderGameOverlayEvent.Chat;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -31,6 +28,7 @@ public class HempFarmer{
 	@Instance(value = "hempfarmer")
     public static HempFarmer instance;
 	public static VersionChecker versionChecker;
+	public static boolean getUpdates = true;
 	public static boolean isLatest = false;
 	public static boolean warned = false;
 	
@@ -40,21 +38,14 @@ public class HempFarmer{
     @EventHandler
 	public void preInit(FMLPreInitializationEvent preEvent) {
     	config = new Configuration(preEvent.getSuggestedConfigurationFile());
-    	  try{
-    	      config.load();
-    	    }
-    	    catch (Exception e){
-    	      throw new RuntimeException(e);
-    	    }
-    	    finally
-    	    {
-    	      if (config.hasChanged())
-    	      {
-    	        config.save();
-    	      }
-    	    }
-    	    MinecraftForge.EVENT_BUS.register(instance);
-    	    HFConfig.sync();
+    	config.load();
+    	boolean updates = config.getBoolean("Check for updates:", "Updates", true, "Whether to check for an updated Mod.");
+    	getUpdates = updates;
+    	config.save();
+    	 
+    	
+    	MinecraftForge.EVENT_BUS.register(instance);
+		Config.sync();
     	proxy.preInit(preEvent);
     }
     
@@ -73,7 +64,7 @@ public class HempFarmer{
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public void onEvent(PlayerTickEvent event){
     	
-    	if (!warned && event.player.worldObj.isRemote && isLatest == false){
+    	if (!warned && event.player.worldObj.isRemote && isLatest == false && getUpdates != false){
             TextComponentString update = new TextComponentString("[Update HempFarmer]");
             Style link = new Style();
             link.setBold(true);

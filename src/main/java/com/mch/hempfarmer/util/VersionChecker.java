@@ -1,4 +1,4 @@
-package com.mch.hempfarmer;
+package com.mch.hempfarmer.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,6 +6,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.apache.commons.io.IOUtils;
+
+import com.mch.hempfarmer.HempFarmer;
+import com.mch.hempfarmer.Reference;
 
 public class VersionChecker implements Runnable{
 	

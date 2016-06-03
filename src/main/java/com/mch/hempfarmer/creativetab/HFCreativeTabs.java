@@ -1,16 +1,11 @@
 package com.mch.hempfarmer.creativetab;
 
-import com.mch.hempfarmer.Reference;
 import com.mch.hempfarmer.init.HFItems;
-import com.mch.hempfarmer.item.HFIcon;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-
 
 public class HFCreativeTabs extends CreativeTabs{
 
@@ -19,10 +14,23 @@ public class HFCreativeTabs extends CreativeTabs{
 	}
 
 	
-    public static final HFCreativeTabs HFTab = new HFCreativeTabs(CreativeTabs.getNextID(), "hempfarmer"){
+    public static final HFCreativeTabs HFCombat = new HFCreativeTabs(CreativeTabs.getNextID(), "combat"){
+        @SideOnly(Side.CLIENT)
+        public Item getTabIconItem(){
+        	return HFItems.resin_sword;
+        }
+    };
+    public static final HFCreativeTabs HFCrops = new HFCreativeTabs(CreativeTabs.getNextID(), "crops"){
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem(){
         	return HFItems.leaf;
+        }
+    };
+    
+    public static final HFCreativeTabs HFMaterials = new HFCreativeTabs(CreativeTabs.getNextID(), "materials"){
+        @SideOnly(Side.CLIENT)
+        public Item getTabIconItem(){
+        	return HFItems.burlap;
         }
     };
 	

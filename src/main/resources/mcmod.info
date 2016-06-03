@@ -3,13 +3,13 @@
   "modid": "hempfarmer",
   "name": "HempFarmer",
   "description": "Adds hemp to Minecraft!",
-  "version": "",
+  "version": "1.9.4-1940-1.2",
   "mcversion": "${mcversion}",
   "url": "http://minecraft.curseforge.com/projects/hempfarmer",
   "updateUrl": "http://mods.curse.com/mc-mods/minecraft/245575-hempfarmer",
   "authorList": ["SeqSEE"],
   "credits": "The Forge and FML guys/girls, for making that example yo!!! And any other opensource free license people out there.",
-  "logoFile": "Icon.png",
+  "logoFile": "icon.png",
   "screenshots": [],
   "dependencies": []
 }

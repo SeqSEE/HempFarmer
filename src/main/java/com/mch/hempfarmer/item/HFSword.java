@@ -24,7 +24,7 @@ public class HFSword extends ItemSword{
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(HFCreativeTabs.HFTab);
+		this.setCreativeTab(HFCreativeTabs.HFCombat);
 		this.setMaxDamage(material.getMaxUses());
 		this.attackDamage = 3.0F + this.material.getDamageVsEntity();
 		addToItems(this);

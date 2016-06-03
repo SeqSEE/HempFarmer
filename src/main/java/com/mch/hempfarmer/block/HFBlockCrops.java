@@ -14,7 +14,7 @@ public class HFBlockCrops extends BlockCrops{
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(HFCreativeTabs.HFTab);
+		this.setCreativeTab(HFCreativeTabs.HFCrops);
 		addToBlocks(this);
 	}
 

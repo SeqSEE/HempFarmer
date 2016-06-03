@@ -15,7 +15,7 @@ public class HFItem extends Item{
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(location);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(HFCreativeTabs.HFTab);
+		this.setCreativeTab(HFCreativeTabs.HFMaterials);
 		addToItems(this);
 	}
 

@@ -1,10 +1,9 @@
 package com.mch.hempfarmer.proxy;
 
-import com.mch.hempfarmer.HempFarmer;
-import com.mch.hempfarmer.VersionChecker;
 import com.mch.hempfarmer.init.HFBlocks;
 import com.mch.hempfarmer.init.HFItems;
 import com.mch.hempfarmer.init.HFRecipes;
+
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

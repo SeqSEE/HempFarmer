@@ -8,6 +8,7 @@ import com.mch.hempfarmer.block.cannibis.Indica;
 import com.mch.hempfarmer.block.cannibis.Sativa;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -19,7 +20,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class HFBlocks extends Blocks{
 	
 	public static List<Block> blocks = new ArrayList();
-	
+
 	public static Block hemp_crop = new Hemp("hemp_crop");
 	public static Block indica_crop = new Indica("indica_crop");
 	public static Block sativa_crop = new Sativa("sativa_crop");
