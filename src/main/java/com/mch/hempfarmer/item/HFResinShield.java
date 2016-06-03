@@ -50,15 +50,15 @@ public class HFResinShield extends ItemShield{
 		return "Resin Shield";
     }
 	
+	@Override
 	@SideOnly(Side.CLIENT)
-    public CreativeTabs getCreativeTab()
-    {
+    public CreativeTabs getCreativeTab(){
         return HFCreativeTabs.HFTab;
     }
 	
-	 public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
-	    {
+	@Override
+	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair){
 	        return repair.getItem() == HFItems.resin ? true : super.getIsRepairable(toRepair, repair);
-	    }
+	}
 	
 }

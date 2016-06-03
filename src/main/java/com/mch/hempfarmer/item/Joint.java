@@ -17,10 +17,15 @@ public class Joint extends HFItem{
 	}
 	
 	@Override
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+	        
+		return EnumActionResult.PASS;
+	}
+	
+	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand){
 
         return new ActionResult (EnumActionResult.SUCCESS, itemStackIn);
-        
        
     }
 

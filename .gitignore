@@ -62,7 +62,13 @@ out
 .idea
 
 # gradle
-build
+build/dependency-cache
+build/classes
+build/resources
+build/retromapping
+build/sources
+build/taskLogs
+build/tmp
 build.gradle
 .gradle
 gradle*
