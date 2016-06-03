@@ -69,6 +69,7 @@ build/retromapping
 build/sources
 build/taskLogs
 build/tmp
+build/libs
 build.gradle
 .gradle
 gradle*
