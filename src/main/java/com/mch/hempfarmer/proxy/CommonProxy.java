@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent preEvent){
-		register();		
+		register(preEvent);		
 	}
 
 	public void init(FMLInitializationEvent event){
@@ -22,7 +22,7 @@ public class CommonProxy {
 		VersionChecker.check(postEvent);
 	}
 	
-	public void register(){
+	public void register(FMLPreInitializationEvent preEvent){
 		HFBlocks.register();
 		HFItems.register();
 		HFRecipes.registerRecipes();
