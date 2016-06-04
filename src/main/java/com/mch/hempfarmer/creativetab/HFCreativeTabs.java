@@ -1,9 +1,14 @@
 package com.mch.hempfarmer.creativetab;
 
+import java.util.List;
+
+import com.mch.hempfarmer.init.HFBlocks;
 import com.mch.hempfarmer.init.HFItems;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -40,5 +45,35 @@ public class HFCreativeTabs extends CreativeTabs{
 		return null;
 	}
 	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public void displayAllRelevantItems(List<ItemStack> p_78018_1_){
+		for (Item item : HFItems.items){
+  		  if (item == null){
+  			  continue;
+  		  }
+  		  for (CreativeTabs tab : item.getCreativeTabs()){
+  			  if (tab == this){
+  				  item.getSubItems(item, this, p_78018_1_);
+  			  }
+  		  }
+	  }
+	      for (Block block : HFBlocks.blocks){
+	    	  Item itemBlock = Item.getItemFromBlock(block);
+	    	  if (block == null){
+	                continue;
+	    	  }
+	    	  for (CreativeTabs tab : itemBlock.getCreativeTabs()){
+	    		  if (tab == this){
+	    			  itemBlock.getSubItems(itemBlock, this, p_78018_1_);
+	    		  }
+	    	  }
+	    	  
+
+	    	  if (this.getRelevantEnchantmentTypes() != null){
+	    		  this.addEnchantmentBooksToList(p_78018_1_, this.getRelevantEnchantmentTypes());
+	    	  }
+	      }
+    }
 
 }

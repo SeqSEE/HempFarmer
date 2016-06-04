@@ -28,7 +28,8 @@ public class HempFarmer{
 	@Instance(value = "hempfarmer")
     public static HempFarmer instance;
 	public static VersionChecker versionChecker;
-	public static boolean getUpdates = true;
+	public static boolean getUpdates;
+	public static String latest;
 	public static boolean isLatest = false;
 	public static boolean warned = false;
 	
@@ -56,27 +57,16 @@ public class HempFarmer{
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent postEvent){
+    	if (getUpdates == true){
 		HempFarmer.versionChecker = new VersionChecker();
-    	Thread versionCheckThread = new Thread(HempFarmer.versionChecker, "Version Check");
+    	Thread versionCheckThread = new Thread(HempFarmer.versionChecker, "HempFarmer - VersionChecker");
     	versionCheckThread.start();
+    	}
     }
     
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public void onEvent(PlayerTickEvent event){
-    	
-    	if (!warned && event.player.worldObj.isRemote && isLatest == false && getUpdates != false){
-            TextComponentString update = new TextComponentString("[Update HempFarmer]");
-            Style link = new Style();
-            link.setBold(true);
-           	link.setUnderlined(true);
-           	link.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString("Click here to visit the Curse page.")));
-           	link.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://mods.curse.com/mc-mods/minecraft/245575-hempfarmer"));
-            update.setStyle(link);
-            event.player.addChatMessage(new TextComponentString("Your HempFarmer Mod is not the latest version!"));
-            event.player.addChatMessage(update);
-            warned = true;
-    	}
- 
+    	VersionChecker.getWarning(event); 
       
     }
 

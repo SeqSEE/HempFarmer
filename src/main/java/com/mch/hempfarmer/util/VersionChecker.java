@@ -10,10 +10,16 @@ import org.apache.commons.io.IOUtils;
 import com.mch.hempfarmer.HempFarmer;
 import com.mch.hempfarmer.Reference;
 
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.event.ClickEvent;
+import net.minecraft.util.text.event.HoverEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
+
 public class VersionChecker implements Runnable{
 	
     
-    private static String latest = "";
+    private static String latestRev;
 
     @Override
     public void run(){
@@ -30,7 +36,7 @@ public class VersionChecker implements Runnable{
         }
 
         try{
-            latest = IOUtils.readLines(versionFile).get(0);
+            latestRev = IOUtils.readLines(versionFile).get(0);
         } 
         catch (IOException e){
 
@@ -39,10 +45,12 @@ public class VersionChecker implements Runnable{
         finally{
             IOUtils.closeQuietly(versionFile);
         }
-        System.out.println("Latest " + Reference.NAME + " version:" + latest);
-        HempFarmer.isLatest = Reference.VER.equals(latest);
-        String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER + " This is an old version!";
+        HempFarmer.latest = latestRev;
+        System.out.println("Latest " + Reference.NAME + " version:" + latestRev);
+        HempFarmer.isLatest = Reference.VER.equals(latestRev);
+        String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER;
         System.out.println(output);
+        System.out.println("This is a different version!");
     }
     
     public boolean isLatestVersion(){
@@ -50,6 +58,23 @@ public class VersionChecker implements Runnable{
     }
     
     public String getLatestVersion(){
-     return latest;
+     return latestRev;
+    }
+    
+    public static boolean getWarning(PlayerTickEvent event){
+    	boolean warned = HempFarmer.warned;
+    	if (!warned && event.player.worldObj.isRemote && HempFarmer.isLatest == false && HempFarmer.getUpdates != false){
+            TextComponentString update = new TextComponentString("[Update to " + latestRev + "]");
+            Style link = new Style();
+            link.setBold(true);
+           	link.setUnderlined(true);
+           	link.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponentString("Click here to visit the Curse page.")));
+           	link.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "http://mods.curse.com/mc-mods/minecraft/245575-hempfarmer"));
+            update.setStyle(link);
+            event.player.addChatMessage(new TextComponentString("Your HempFarmer Mod is not the recommended version!"));
+            event.player.addChatMessage(update);
+            HempFarmer.warned = true;
+    	}
+    	return warned;
     }
 }
