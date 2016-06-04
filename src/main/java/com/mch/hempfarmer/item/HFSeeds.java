@@ -26,8 +26,7 @@ public class HFSeeds extends ItemSeeds implements net.minecraftforge.common.IPla
 	public HFSeeds(String name, Block crop, int weight) {
 		super(crop, Blocks.FARMLAND);
 		this.crops = crop;
-		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
-		this.setRegistryName(location);
+		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFCrops);
 		register(this, weight);

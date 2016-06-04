@@ -12,8 +12,7 @@ public class HFItem extends Item{
 	
 	public HFItem(String name, int maxStack) {
 		this.setMaxStackSize(maxStack);
-		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
-		this.setRegistryName(location);
+		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFMaterials);
 		addToItems(this);

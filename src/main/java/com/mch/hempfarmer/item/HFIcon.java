@@ -10,9 +10,8 @@ import net.minecraft.util.ResourceLocation;
 public class HFIcon extends Item{
 	
 	public HFIcon(String name){
-	ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
-	this.setRegistryName(location);
-	addToItems(this);
+		this.setRegistryName(name);
+		addToItems(this);
 	}
 	
 	private void addToItems(Item item) {

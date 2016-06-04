@@ -25,8 +25,7 @@ public class HFResinShield extends ItemShield{
 	
 	 public HFResinShield(String name){
 	        this.maxStackSize = 1;
-	        ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
-			this.setRegistryName(location);
+			this.setRegistryName(name);
 			this.setUnlocalizedName(name);
 			addToItems(this);
 	        this.setMaxDamage(336);

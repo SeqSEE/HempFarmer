@@ -1,6 +1,6 @@
-itemGroup.combat=HempFarmer:Combat
-itemGroup.crops=HempFarmer:Crops
-itemGroup.materials=HempFarmer:Materials
+itemGroup.hfcombat=HempFarmer:Combat
+itemGroup.hfcrops=HempFarmer:Crops
+itemGroup.hfmaterials=HempFarmer:Materials
 item.seeds_hemp.name=Hemp Seeds
 item.seeds_indica.name=Indica Seeds
 item.seeds_sativa.name=Sativa Seeds
