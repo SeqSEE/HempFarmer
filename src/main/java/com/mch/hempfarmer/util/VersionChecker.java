@@ -14,12 +14,21 @@ import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class VersionChecker implements Runnable{
 	
     
     private static String latestRev;
+    
+    public static void check(FMLPostInitializationEvent postEvent){
+    	if (HempFarmer.getUpdates == true){
+    		HempFarmer.versionChecker = new VersionChecker();
+        	Thread versionCheckThread = new Thread(HempFarmer.versionChecker, "HempFarmer - VersionChecker");
+        	versionCheckThread.start();
+        }
+    }
 
     @Override
     public void run(){

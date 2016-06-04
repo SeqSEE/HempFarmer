@@ -4,10 +4,6 @@ import com.mch.hempfarmer.proxy.CommonProxy;
 import com.mch.hempfarmer.util.Config;
 import com.mch.hempfarmer.util.VersionChecker;
 
-import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.event.ClickEvent;
-import net.minecraft.util.text.event.HoverEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -57,18 +53,12 @@ public class HempFarmer{
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent postEvent){
-    	if (getUpdates == true){
-		HempFarmer.versionChecker = new VersionChecker();
-    	Thread versionCheckThread = new Thread(HempFarmer.versionChecker, "HempFarmer - VersionChecker");
-    	versionCheckThread.start();
-    	}
+    	VersionChecker.check(postEvent);
     }
     
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public void onEvent(PlayerTickEvent event){
     	VersionChecker.getWarning(event); 
-      
     }
-
-    
+   
 }

@@ -3,6 +3,7 @@ package com.mch.hempfarmer.proxy;
 import com.mch.hempfarmer.init.HFBlocks;
 import com.mch.hempfarmer.init.HFItems;
 import com.mch.hempfarmer.init.HFRecipes;
+import com.mch.hempfarmer.util.VersionChecker;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -15,10 +16,10 @@ public class CommonProxy {
 	}
 
 	public void init(FMLInitializationEvent event){
-		registerRender();
+		registerRender(event);
 	}
 	public void postInit(FMLPostInitializationEvent postEvent){
-
+		VersionChecker.check(postEvent);
 	}
 	
 	public void register(){
@@ -27,7 +28,7 @@ public class CommonProxy {
 		HFRecipes.registerRecipes();
 	}
 	
-	public void registerRender(){
+	public void registerRender(FMLInitializationEvent event){
 		//DO NOT REGISTER RENDER HERE!!!
 	}
 
