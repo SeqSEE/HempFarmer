@@ -21,8 +21,8 @@ public class ClientProxy extends CommonProxy{
 	
 	@Override
 	public void registerRender(FMLInitializationEvent event){
-		HFItems.registerRender();
-		HFBlocks.registerRender();
+		HFItems.registerRender(event);
+		HFBlocks.registerRender(event);
 	}
 
 }

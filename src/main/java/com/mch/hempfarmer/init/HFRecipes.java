@@ -3,11 +3,12 @@ package com.mch.hempfarmer.init;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class HFRecipes {
 	
-	public static void registerRecipes(){		
+	public static void registerRecipes(FMLPreInitializationEvent preEvent){		
 		//Dried Hemp//- Smelting Recipe
 		GameRegistry.addSmelting(new ItemStack(HFItems.raw_hemp), new ItemStack(HFItems.dry_hemp), 0.1F);
 		//Hemp Resin//- Smelting Recipe

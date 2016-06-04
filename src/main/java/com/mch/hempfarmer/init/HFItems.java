@@ -17,6 +17,8 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
@@ -66,13 +68,13 @@ public class HFItems extends Items{
 		return items;
 	}
 
-	public static void register() {
+	public static void register(FMLPreInitializationEvent preEvent) {
 		for (Item item : itemList()){
 			GameRegistry.register(item);
 		}		
 	}
 	
-	public static void registerRender(){
+	public static void registerRender(FMLInitializationEvent event){
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
 		for (Item item : itemList()){
     	renderItem.getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName().toString(), "inventory"));

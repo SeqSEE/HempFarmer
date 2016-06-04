@@ -34,15 +34,6 @@ public class HempFarmer{
 
     @EventHandler
 	public void preInit(FMLPreInitializationEvent preEvent) {
-    	config = new Configuration(preEvent.getSuggestedConfigurationFile());
-    	config.load();
-    	boolean updates = config.getBoolean("Check for updates:", "Updates", true, "Whether to check for an updated Mod.");
-    	getUpdates = updates;
-    	config.save();
-    	 
-    	
-    	MinecraftForge.EVENT_BUS.register(instance);
-		Config.sync();
     	proxy.preInit(preEvent);
     }
     
@@ -53,7 +44,7 @@ public class HempFarmer{
     
     @EventHandler
     public void postInit(FMLPostInitializationEvent postEvent){
-    	VersionChecker.check(postEvent);
+    	proxy.postInit(postEvent);
     }
     
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
