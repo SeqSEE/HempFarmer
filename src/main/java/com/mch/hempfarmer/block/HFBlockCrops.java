@@ -6,11 +6,13 @@ import com.mch.hempfarmer.init.HFBlocks;
 import com.mch.hempfarmer.init.HFItems;
 
 import net.minecraft.block.BlockCrops;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 
-public class HFBlockCrops extends BlockCrops{
+public class HFBlockCrops extends BlockCrops {
 	
-	public HFBlockCrops(String name){
+	public HFBlockCrops(String name) {
 		ResourceLocation location = new ResourceLocation(Reference.ID + ":" + name);
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
@@ -21,5 +23,4 @@ public class HFBlockCrops extends BlockCrops{
 	private void addToBlocks(BlockCrops block) {
 		HFBlocks.blocks.add(block);
 	}
-
 }

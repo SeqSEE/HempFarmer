@@ -17,41 +17,39 @@ import net.minecraft.util.text.event.HoverEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
-public class VersionChecker implements Runnable{
+public class VersionChecker implements Runnable {
 	
     
     private static String latestRev;
     
-    public static void check(FMLPostInitializationEvent postEvent){
+    public static void check(FMLPostInitializationEvent postEvent) {
     	if (HempFarmer.getUpdates == true){
     		HempFarmer.versionChecker = new VersionChecker();
-        	Thread versionCheckThread = new Thread(HempFarmer.versionChecker, "HempFarmer - VersionChecker");
+        	Thread versionCheckThread = new Thread(HempFarmer.versionChecker);
         	versionCheckThread.start();
         }
     }
 
     @Override
-    public void run(){
+    public void run() {
         InputStream versionFile = null;
         try{
         	versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest").openStream();
         } 
-        catch 
-        (MalformedURLException e){
+        catch (MalformedURLException e) {
             e.printStackTrace();
         } 
-        catch (IOException e){
+        catch (IOException e) {
             e.printStackTrace();
         }
-
-        try{
+        try {
             latestRev = IOUtils.readLines(versionFile).get(0);
         } 
-        catch (IOException e){
+        catch (IOException e) {
 
             e.printStackTrace();
         } 
-        finally{
+        finally {
             IOUtils.closeQuietly(versionFile);
         }
         HempFarmer.latest = latestRev;
@@ -62,15 +60,15 @@ public class VersionChecker implements Runnable{
         System.out.println("This is a different version!");
     }
     
-    public boolean isLatestVersion(){
+    public boolean isLatestVersion() {
      return HempFarmer.isLatest;
     }
     
-    public String getLatestVersion(){
+    public String getLatestVersion() {
      return latestRev;
     }
     
-    public static boolean getWarning(PlayerTickEvent event){
+    public static boolean getWarning(PlayerTickEvent event) {
     	boolean warned = HempFarmer.warned;
     	if (!warned && event.player.worldObj.isRemote && HempFarmer.isLatest == false && HempFarmer.getUpdates != false){
             TextComponentString update = new TextComponentString("[Update to " + latestRev + "]");

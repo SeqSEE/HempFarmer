@@ -8,7 +8,6 @@ import com.mch.hempfarmer.block.cannibis.Indica;
 import com.mch.hempfarmer.block.cannibis.Sativa;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -21,6 +20,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class HFBlocks extends Blocks{
 	
+	public static final List<Item> items = new ArrayList();
+
 	public static List<Block> blocks = new ArrayList();
 
 	public static Block hemp_crop = new Hemp("hemp_crop");
@@ -29,6 +30,9 @@ public class HFBlocks extends Blocks{
 	
 	public static List<Block> blockList(){
 		return blocks;		
+	}
+	public static List<Item> itemList(){
+		return items;		
 	}
 		
 	
@@ -43,6 +47,9 @@ public class HFBlocks extends Blocks{
 	public static void registerRender(FMLInitializationEvent event){
 		for (Block block : blockList()){
 		Item item = new Item().getItemFromBlock(block);
+		if (block.getRegistryName().toString().endsWith("_crop")){
+			item.setMaxStackSize(1);
+		}
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     	renderItem.getItemModelMesher().register(item, 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));
 		}

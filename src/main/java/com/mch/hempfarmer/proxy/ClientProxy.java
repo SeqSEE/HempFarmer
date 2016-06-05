@@ -12,15 +12,17 @@ public class ClientProxy extends CommonProxy{
 	public void preInit(FMLPreInitializationEvent preEvent) {
 		super.preInit(preEvent);
 	}
+	
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
 	}
+	
 	public void postInit(FMLPostInitializationEvent postEvent) {
 		super.postInit(postEvent);
 	}
 	
 	@Override
-	public void registerRender(FMLInitializationEvent event){
+	public void registerRender(FMLInitializationEvent event) {
 		HFItems.registerRender(event);
 		HFBlocks.registerRender(event);
 	}

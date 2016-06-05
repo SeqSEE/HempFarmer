@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class Config {
 	
 	
-	public static void sync(){
+	public static void sync() {
 	MinecraftForge.EVENT_BUS.register(HempFarmer.instance);
 		if (HempFarmer.config.hasChanged()) {
 			HempFarmer.config.save();
@@ -23,7 +23,6 @@ public class Config {
     	HempFarmer.getUpdates = updates;
     	HempFarmer.config.save();
      	MinecraftForge.EVENT_BUS.register(HempFarmer.instance);
-		Config.sync();
-		
+		Config.sync();	
 	}
 }

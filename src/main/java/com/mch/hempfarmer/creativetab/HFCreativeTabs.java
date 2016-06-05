@@ -32,12 +32,20 @@ public class HFCreativeTabs extends CreativeTabs{
         }
     };
     
+    public static final HFCreativeTabs HFDrugs = new HFCreativeTabs(CreativeTabs.getNextID(), "hfdrugs"){
+        @SideOnly(Side.CLIENT)
+        public Item getTabIconItem(){
+        	return HFItems.regs_joint;
+        }
+    };
+    
     public static final HFCreativeTabs HFMaterials = new HFCreativeTabs(CreativeTabs.getNextID(), "hfmaterials"){
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem(){
         	return HFItems.burlap;
         }
     };
+   
 	
 	
 	@Override
