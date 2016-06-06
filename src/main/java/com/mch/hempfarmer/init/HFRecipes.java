@@ -132,8 +132,8 @@ public class HFRecipes {
 				new ItemStack(Items.MILK_BUCKET), new ItemStack(Items.DYE, 1, 3),
 				new ItemStack(HFItems.bud), new ItemStack(HFItems.bud), new ItemStack(HFItems.bud) );
 		//Rolling Paper//- Shapeless Recipe
-			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.regs_joint),
-				new ItemStack(HFItems.rolling_paper, 3), new ItemStack(Items.PAPER));
+			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.rolling_paper, 3),
+				new ItemStack(Items.PAPER));
 		//Joints//- Shapeless Recipe
 			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.regs_joint),
 				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.bud),
