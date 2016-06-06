@@ -18,7 +18,6 @@ public class Sativa extends HFBlockCrops{
 	public Sativa(String name) {
 		super(name);
 	}
-
     @Override
 	protected Item getSeed() {
 		Item seed ;
