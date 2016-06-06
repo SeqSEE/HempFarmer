@@ -1,5 +1,7 @@
 package com.mch.hempfarmer.init;
 
+import com.mch.hempfarmer.HempFarmer;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
@@ -114,30 +116,34 @@ public class HFRecipes {
 				"rrr",
 				"rrr",
 				" r ", 'r', new ItemStack(HFItems.resin));
+		//Seedlings//- Shapeless Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.hemp_crop),
+			new ItemStack(HFItems.seeds_hemp));
+		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.indica_crop),
+			new ItemStack(HFItems.seeds_indica));
+		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.sativa_crop),
+			new ItemStack(HFItems.seeds_sativa));
+		
+		
+		if (HempFarmer.drugs == true && HempFarmer.drugsCrafting == true){
 		//Pot Brownies//- Shapeless Recipe
-		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.pot_brownie),
+			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.pot_brownie),
 				new ItemStack(Items.EGG), new ItemStack(Items.SUGAR),
 				new ItemStack(Items.MILK_BUCKET), new ItemStack(Items.DYE, 1, 3),
 				new ItemStack(HFItems.bud), new ItemStack(HFItems.bud), new ItemStack(HFItems.bud) );
 		//Rolling Paper//- Shapeless Recipe
-		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.regs_joint),
+			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.regs_joint),
 				new ItemStack(HFItems.rolling_paper, 3), new ItemStack(Items.PAPER));
 		//Joints//- Shapeless Recipe
-		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.regs_joint),
+			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.regs_joint),
 				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.bud),
 				new ItemStack(HFItems.bud), new ItemStack(HFItems.bud));
-		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.indica_joint),
+			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.indica_joint),
 				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.indica_bud),
 				new ItemStack(HFItems.indica_bud), new ItemStack(HFItems.indica_bud));
-		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.sativa_joint),
+			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.sativa_joint),
 				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.sativa_bud),
 				new ItemStack(HFItems.sativa_bud), new ItemStack(HFItems.sativa_bud));
-		//Seedlings//- Shapeless Recipe
-		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.hemp_crop),
-				new ItemStack(HFItems.seeds_hemp));
-		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.indica_crop),
-				new ItemStack(HFItems.seeds_indica));
-		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.sativa_crop),
-				new ItemStack(HFItems.seeds_sativa));
+		}
 	}
 }

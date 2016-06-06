@@ -18,4 +18,5 @@ public class HFItem extends Item {
 	private void addToItems(Item item) {
 		HFItems.items.add(item);
 	}
+
 }

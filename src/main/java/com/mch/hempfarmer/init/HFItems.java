@@ -3,6 +3,7 @@ package com.mch.hempfarmer.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mch.hempfarmer.HempFarmer;
 import com.mch.hempfarmer.item.HFArmor;
 import com.mch.hempfarmer.item.HFDrug;
 import com.mch.hempfarmer.item.HFItem;
@@ -64,11 +65,11 @@ public class HFItems extends Items{
 	public static List<Item> itemList() {
 		return items;
 	}
-
+	
 	public static void register(FMLPreInitializationEvent preEvent) {
 		for (Item item : itemList()){
 			GameRegistry.register(item);
-		}		
+		}
 	}
 	
 	public static void registerRender(FMLInitializationEvent event) {

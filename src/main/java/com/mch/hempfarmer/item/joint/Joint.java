@@ -4,6 +4,8 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import com.mch.hempfarmer.HempFarmer;
+import com.mch.hempfarmer.creativetab.DrugsTab;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
 import com.mch.hempfarmer.init.HFItems;
 import com.mch.hempfarmer.item.HFItem;
@@ -41,11 +43,13 @@ public class Joint extends ItemFood{
         this.alwaysEdible = true;
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(HFCreativeTabs.HFDrugs);
-		addToItems(this);
+		if (HempFarmer.drugs == true){
+			this.setCreativeTab(DrugsTab.HFDrugs);
+			addToItems(this);
+		}
 	}
 	
-	private void addToItems(Item item) {
+	public void addToItems(Item item) {
 		HFItems.items.add(item);
 	}
 

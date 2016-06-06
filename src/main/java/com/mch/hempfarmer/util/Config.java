@@ -21,6 +21,10 @@ public class Config {
 		HempFarmer.config.load();
     	boolean updates = HempFarmer.config.getBoolean("Check for updates:", "Updates", true, "Whether to check for an updated Mod.");
     	HempFarmer.getUpdates = updates;
+    	boolean drugs = HempFarmer.config.getBoolean("Enable Drugs:", "Drugs", true, "Whether to enable drugs at all.");
+    	HempFarmer.drugs = drugs;
+    	boolean drugsCraft = HempFarmer.config.getBoolean("Enable Crafting Drugs:", "Drugs", true, "Whether to enable crafting drugs.");
+    	HempFarmer.drugsCrafting = drugsCraft;
     	HempFarmer.config.save();
      	MinecraftForge.EVENT_BUS.register(HempFarmer.instance);
 		Config.sync();	

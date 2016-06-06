@@ -55,9 +55,9 @@ public class VersionChecker implements Runnable {
         HempFarmer.latest = latestRev;
         System.out.println("Latest " + Reference.NAME + " version:" + latestRev);
         HempFarmer.isLatest = Reference.VER.equals(latestRev);
-        String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER;
+        String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER + "    You are running a different version!";
         System.out.println(output);
-        System.out.println("This is a different version!");
+        
     }
     
     public boolean isLatestVersion() {
