@@ -38,8 +38,11 @@ public class HFBlocks extends Blocks{
 	
 	public static void register(FMLPreInitializationEvent preEvent){
 		for (Block block : blockList()){
-			GameRegistry.register(block);
 			ItemBlock iBlock = new ItemBlock(block);
+			if (block.getRegistryName().toString().endsWith("_crop")){
+				iBlock.setMaxStackSize(1);
+			}
+			GameRegistry.register(block);
 		    GameRegistry.register(iBlock, block.getRegistryName());
 		}
 	}
@@ -47,9 +50,6 @@ public class HFBlocks extends Blocks{
 	public static void registerRender(FMLInitializationEvent event){
 		for (Block block : blockList()){
 		Item item = new Item().getItemFromBlock(block);
-		if (block.getRegistryName().toString().endsWith("_crop")){
-			item.setMaxStackSize(1);
-		}
 		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     	renderItem.getItemModelMesher().register(item, 0, new ModelResourceLocation(block.getRegistryName().toString(), "inventory"));
 		}
