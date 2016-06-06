@@ -3,7 +3,6 @@ package com.mch.hempfarmer.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mch.hempfarmer.HempFarmer;
 import com.mch.hempfarmer.item.HFArmor;
 import com.mch.hempfarmer.item.HFDrug;
 import com.mch.hempfarmer.item.HFItem;

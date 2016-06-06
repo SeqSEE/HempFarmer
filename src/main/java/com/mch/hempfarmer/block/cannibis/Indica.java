@@ -15,10 +15,11 @@ import net.minecraft.world.World;
 
 public class Indica extends HFBlockCrops {
 	
+	
 	public Indica(String name) {
 		super(name);
 	}
-
+	
     @Override
 	protected Item getSeed() {
 		Item seed ;

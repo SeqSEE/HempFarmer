@@ -6,9 +6,7 @@ import javax.annotation.Nullable;
 
 import com.mch.hempfarmer.HempFarmer;
 import com.mch.hempfarmer.creativetab.DrugsTab;
-import com.mch.hempfarmer.creativetab.HFCreativeTabs;
 import com.mch.hempfarmer.init.HFItems;
-import com.mch.hempfarmer.item.HFItem;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,11 +18,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
-
 
 public class Joint extends ItemFood{
 	
@@ -60,17 +56,23 @@ public class Joint extends ItemFood{
     }
 	@Override
     @Nullable
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entity) {
         --stack.stackSize;
+        double x = entity.lastTickPosX;
+		double y = entity.lastTickPosY + 1.5;
+		double z = entity.lastTickPosZ;
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x - 0.1, y, z - 0.1, 0.1, 0.1, 0.1);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, 0.1, 0.1, 0.1);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + 0.1, y, z + 0.1, 0.1, 0.1, 0.1);
         Random random = new Random();
-        int x = random.nextInt(500) + 100;
-        int y = random.nextInt(2) + 1;
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(2), x, 1, true, false));
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(17), x, y, true, false));
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(24), x, y, true, false));
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(8), x, y, true, false));
-        x = random.nextInt(210) + 50;
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(9), x, 1, true, false));
+        int a = random.nextInt(500) + 100;
+        int b = random.nextInt(2) + 1;
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(2), a, 1, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(17), a, b, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(24), a, b, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(8), a, b, true, false));
+        a = random.nextInt(210) + 50;
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(9), a, 1, true, false));
         return stack;
     }
 	@Override

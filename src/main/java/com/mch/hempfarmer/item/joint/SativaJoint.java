@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 public class SativaJoint extends Joint{
@@ -17,16 +18,22 @@ public class SativaJoint extends Joint{
 	}
 	@Override
 	@Nullable
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entity) {
 		--stack.stackSize;
+		double x = entity.lastTickPosX;
+		double y = entity.lastTickPosY + 1.5;
+		double z = entity.lastTickPosZ;
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x - 0.1, y, z - 0.1, 0.1, 0.1, 0.1);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, 0.1, 0.1, 0.1);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + 0.1, y, z + 0.1, 0.1, 0.1, 0.1);
 		Random random = new Random();
-        int x = random.nextInt(1500) + 50;
-        int y = random.nextInt(2) + 1;
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(17), x, y, true, false));
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(24), x, y, true, false));
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(10), x, y, true, false));
-        x = random.nextInt(210) + 50;
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(16), x, 1, true, false));
+        int a = random.nextInt(1500) + 50;
+        int b = random.nextInt(2) + 1;
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(17), a, b, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(24), a, b, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(10), a, b, true, false));
+        a = random.nextInt(210) + 50;
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(16), a, 1, true, false));
         return stack;
 	}
 

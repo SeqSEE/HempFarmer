@@ -2,7 +2,6 @@ package com.mch.hempfarmer.creativetab;
 
 import java.util.List;
 
-import com.mch.hempfarmer.HempFarmer;
 import com.mch.hempfarmer.init.HFBlocks;
 import com.mch.hempfarmer.init.HFItems;
 
