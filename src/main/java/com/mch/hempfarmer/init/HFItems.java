@@ -27,14 +27,15 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class HFItems extends Items{
 	
 	public static List<Item> items = new ArrayList();
-	public static Item regs_joint = new Joint("regs_joint", 1);
-	public static Item indica_joint = new IndicaJoint("indica_joint", 1);
-	public static Item sativa_joint = new SativaJoint("sativa_joint", 1);
+	public static Item regs_joint = new Joint("regs_joint");
+	public static Item indica_joint = new IndicaJoint("indica_joint");
+	public static Item sativa_joint = new SativaJoint("sativa_joint");
 	public static Item pot_brownie = new PotBrownie("pot_brownie");
 	public static Item leaf = new HFItem("leaf", 64);
 	public static Item bud = new HFDrug("bud", 64);
 	public static Item indica_bud = new HFDrug("indica_bud", 64);
 	public static Item sativa_bud = new HFDrug("sativa_bud", 64);
+	public static Item rolling_paper = new HFDrug("rolling_paper", 24);
 	public static Item raw_hemp = new HFItem("raw_hemp", 64);
 	public static Item dry_hemp = new HFItem("dry_hemp", 64);
 	public static Item burlap = new HFItem("burlap", 64);

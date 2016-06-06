@@ -1,5 +1,7 @@
 package com.mch.hempfarmer.item;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
@@ -24,12 +26,19 @@ import net.minecraft.world.World;
 
 
 public class PotBrownie extends ItemFood{
-	
-	public int itemUseDuration; 
-	
+    public final int itemUseDuration;
+    private final int healAmount;
+    private final float saturationModifier;
+    private final boolean isWolfsFavoriteMeat;
+    private boolean alwaysEdible;
+    
 	public PotBrownie(String name) {
-		super(2, 0.1F , false);
-		this.itemUseDuration = 32;
+		super(2, 0.0F , false);
+		this.itemUseDuration = 8;
+        this.healAmount = 0;
+        this.isWolfsFavoriteMeat = false;
+        this.saturationModifier = 0.0F;
+        this.alwaysEdible = true;
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFDrugs);
@@ -41,33 +50,30 @@ public class PotBrownie extends ItemFood{
 	}
 	
 	@Override
-    protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player){
-        if (!worldIn.isRemote){
-            player.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 50));
-        }
-    }
-	
-	@Override
-    public EnumAction getItemUseAction(ItemStack stack){
-        return EnumAction.EAT;
-    }
-	
-	@Override
     public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand){  
 		playerIn.setActiveHand(hand);
         return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
     }
 	@Override
     @Nullable
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving)
-    {
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
         --stack.stackSize;
+        Random random = new Random();
+        int x = random.nextInt(3000) + 100;
+        int y = random.nextInt(4) + 1;
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(2), x, 1, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(17), x, y, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(24), x, y, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(8), x, y, true, false));
+        x = random.nextInt(420) + 100;
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(9), x, 1, true, false));
+        x = random.nextInt(210) + 100;
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(25), x, 1, true, false));
         return stack;
     }
 	@Override
-    public int getMaxItemUseDuration(ItemStack stack)
-    {
-        return 32;
+    public int getMaxItemUseDuration(ItemStack stack) {
+        return 8;
     }
 
 }

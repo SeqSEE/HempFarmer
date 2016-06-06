@@ -2,6 +2,7 @@ package com.mch.hempfarmer.init;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -118,15 +119,18 @@ public class HFRecipes {
 				new ItemStack(Items.EGG), new ItemStack(Items.SUGAR),
 				new ItemStack(Items.MILK_BUCKET), new ItemStack(Items.DYE, 1, 3),
 				new ItemStack(HFItems.bud), new ItemStack(HFItems.bud), new ItemStack(HFItems.bud) );
+		//Rolling Paper//- Shapeless Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.regs_joint),
+				new ItemStack(HFItems.rolling_paper, 3), new ItemStack(Items.PAPER));
 		//Joints//- Shapeless Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.regs_joint),
-				new ItemStack(Items.PAPER), new ItemStack(HFItems.bud),
+				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.bud),
 				new ItemStack(HFItems.bud), new ItemStack(HFItems.bud));
 		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.indica_joint),
-				new ItemStack(Items.PAPER), new ItemStack(HFItems.indica_bud),
+				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.indica_bud),
 				new ItemStack(HFItems.indica_bud), new ItemStack(HFItems.indica_bud));
 		GameRegistry.addShapelessRecipe(new ItemStack(HFItems.sativa_joint),
-				new ItemStack(Items.PAPER), new ItemStack(HFItems.sativa_bud),
+				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.sativa_bud),
 				new ItemStack(HFItems.sativa_bud), new ItemStack(HFItems.sativa_bud));
 		//Seedlings//- Shapeless Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.hemp_crop),
