@@ -64,7 +64,8 @@ public class PotBrownie extends ItemFood{
         entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(8), x, 6, true, false));
         x = random.nextInt(420) + 100;
         entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(9), x, 1, true, false));
-        x = random.nextInt(120) + 50;
+        x = random.nextInt(210) + 50;
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(11), x, y, true, false));
         entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(25), x, 1, true, false));
         return stack;
     }
