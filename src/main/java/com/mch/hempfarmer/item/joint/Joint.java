@@ -71,7 +71,7 @@ public class Joint extends ItemFood{
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(17), a, b, true, false));
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(24), a, b, true, false));
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(8), a, b, true, false));
-        a = random.nextInt(210) + 50;
+        a = random.nextInt(20) + 10;
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(9), a, 1, true, false));
         return stack;
     }

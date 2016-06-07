@@ -7,17 +7,38 @@ import com.mch.hempfarmer.HempFarmer;
 import com.mch.hempfarmer.block.HFBlockCrops;
 import com.mch.hempfarmer.init.HFItems;
 
+import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class Sativa extends HFBlockCrops{
+	
+	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
+    private static final AxisAlignedBB[] SATIVA_AABB = new AxisAlignedBB[] {
+    		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.19D, 1.0D),
+    		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.38D, 1.0D),
+    		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.57D, 1.0D),
+    		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.76D, 1.0D),
+    		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.95D, 1.0D),
+    		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.14D, 1.0D),
+    		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.33D, 1.0D),
+    		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.52D, 1.0D)};
+
 		
 	public Sativa(String name) {
 		super(name);
 	}
+	
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return SATIVA_AABB[((Integer)state.getValue(this.getAgeProperty())).intValue()];
+	}
+	
     @Override
 	protected Item getSeed() {
 		Item seed ;

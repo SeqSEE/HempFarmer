@@ -33,7 +33,7 @@ public class SativaJoint extends Joint{
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(24), a, b, true, false));
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(10), a, b, true, false));
         a = random.nextInt(210) + 50;
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(16), a, 1, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(16), a, b, true, false));
         return stack;
 	}
 

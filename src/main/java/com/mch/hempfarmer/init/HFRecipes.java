@@ -5,8 +5,10 @@ import com.mch.hempfarmer.HempFarmer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
 
 public class HFRecipes {
 	
@@ -143,6 +145,10 @@ public class HFRecipes {
 			GameRegistry.addShapelessRecipe(new ItemStack(HFItems.sativa_joint),
 				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.sativa_bud),
 				new ItemStack(HFItems.sativa_bud), new ItemStack(HFItems.sativa_bud));
+		}
+	//Register Fun Ores Recipes
+		if (Loader.isModLoaded("FunOres")) {
+			ExternalRecipes.registerFunOres();
 		}
 	}
 }

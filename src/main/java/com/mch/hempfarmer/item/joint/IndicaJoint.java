@@ -39,7 +39,7 @@ public class IndicaJoint extends Joint{
         if (a > 90){
         	a = random.nextInt(210) + 50;
             entity.addPotionEffect(new PotionEffect(Potion.getPotionById(9), a, 1, true, false));	
-            a = random.nextInt(105) + 50;
+            a = random.nextInt(95) + 50;
             entity.addPotionEffect(new PotionEffect(Potion.getPotionById(25), a, 1, true, false));
         }
         return stack;
