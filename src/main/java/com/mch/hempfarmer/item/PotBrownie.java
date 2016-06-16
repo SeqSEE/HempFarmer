@@ -29,7 +29,7 @@ public class PotBrownie extends ItemFood{
     
 	public PotBrownie(String name) {
 		super(2, 0.0F , false);
-		this.itemUseDuration = 8;
+		this.itemUseDuration = 16;
         this.healAmount = 0;
         this.isWolfsFavoriteMeat = false;
         this.saturationModifier = 0.0F;
@@ -71,7 +71,7 @@ public class PotBrownie extends ItemFood{
     }
 	@Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return 8;
+        return 16;
     }
 
 }

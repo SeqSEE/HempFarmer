@@ -13,8 +13,9 @@ import net.minecraft.world.World;
 
 public class SativaJoint extends Joint{
 
-	public SativaJoint(String name) {
-		super(name);
+	public SativaJoint(String name, int maxStack) {
+		super(name, maxStack);
+		this.itemUseDuration = 16;
 	}
 	@Override
 	@Nullable
@@ -23,9 +24,12 @@ public class SativaJoint extends Joint{
 		double x = entity.lastTickPosX;
 		double y = entity.lastTickPosY + 1.5;
 		double z = entity.lastTickPosZ;
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x - 0.1, y, z - 0.1, 0.1, 0.1, 0.1);
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, 0.1, 0.1, 0.1);
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + 0.1, y, z + 0.1, 0.1, 0.1, 0.1);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x - 0.2, y, z - 0.2, -0.05, 0.05, 0.05);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0.05, -0.05, 0.05);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + 0.2, y, z + 0.2, 0.05, 0.05, -0.05);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x - 0.2, y, z - 0.2, 0.05, -0.05, -0.05);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, -0.05, -0.05, 0.05);
+		worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + 0.2, y, z + 0.2, -0.05, -0.05, -0.05);
 		Random random = new Random();
         int a = random.nextInt(1500) + 50;
         int b = random.nextInt(2) + 1;

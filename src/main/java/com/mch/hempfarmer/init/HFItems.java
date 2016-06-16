@@ -27,9 +27,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class HFItems extends Items{
 	
 	public static List<Item> items = new ArrayList();
-	public static Item regs_joint = new Joint("regs_joint");
-	public static Item indica_joint = new IndicaJoint("indica_joint");
-	public static Item sativa_joint = new SativaJoint("sativa_joint");
+	public static Item regs_joint = new Joint("regs_joint", 5);
+	public static Item indica_joint = new IndicaJoint("indica_joint", 5);
+	public static Item sativa_joint = new SativaJoint("sativa_joint", 5);
 	public static Item pot_brownie = new PotBrownie("pot_brownie");
 	public static Item leaf = new HFItem("leaf", 64);
 	public static Item bud = new HFDrug("bud", 64);
