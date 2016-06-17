@@ -60,12 +60,12 @@ public class Sativa extends HFBlockCrops{
     @Override
     protected Item getCrop() {
     	if (!HempFarmer.drugs){
-    		return HFItems.raw_hemp;
+    		return HFItems.lime_raw_hemp;
     	}
     	Item crop;
     	Random random = new Random();
     	int x = random.nextInt(100) + 1;
-    	crop = x > 70 ? HFItems.bud : HFItems.sativa_bud;
+    	crop = x > 70 ? HFItems.lime_raw_hemp : HFItems.sativa_bud;
         return crop;
     }
     

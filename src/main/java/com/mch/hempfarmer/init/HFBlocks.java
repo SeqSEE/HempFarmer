@@ -3,9 +3,11 @@ package com.mch.hempfarmer.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mch.hempfarmer.block.BlockBurlap;
 import com.mch.hempfarmer.block.cannibis.Hemp;
 import com.mch.hempfarmer.block.cannibis.Indica;
 import com.mch.hempfarmer.block.cannibis.Sativa;
+import com.mch.hempfarmer.item.HFItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -23,7 +25,12 @@ public class HFBlocks extends Blocks{
 	public static final List<Item> items = new ArrayList();
 
 	public static List<Block> blocks = new ArrayList();
-
+	
+	public static Block burlap = new BlockBurlap("burlap");
+	public static Block oily_burlap = new BlockBurlap("oily_burlap");
+	public static Block resin_burlap = new BlockBurlap("resin_burlap");
+	public static Block lime_burlap = new BlockBurlap("lime_burlap");
+	public static Block violet_burlap = new BlockBurlap("violet_burlap");
 	public static Block hemp_crop = new Hemp("hemp_crop");
 	public static Block indica_crop = new Indica("indica_crop");
 	public static Block sativa_crop = new Sativa("sativa_crop");
@@ -31,10 +38,6 @@ public class HFBlocks extends Blocks{
 	public static List<Block> blockList(){
 		return blocks;		
 	}
-	public static List<Item> itemList(){
-		return items;		
-	}
-		
 	
 	public static void register(FMLPreInitializationEvent preEvent){
 		for (Block block : blockList()){

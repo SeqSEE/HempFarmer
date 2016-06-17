@@ -35,7 +35,7 @@ public class HFCreativeTabs extends CreativeTabs{
     public static final HFCreativeTabs HFMaterials = new HFCreativeTabs(CreativeTabs.getNextID(), "hfmaterials"){
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem(){
-        	return HFItems.burlap;
+        	return Item.getItemFromBlock(HFBlocks.burlap);
         }
     };
     

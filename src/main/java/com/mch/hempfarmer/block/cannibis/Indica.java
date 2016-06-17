@@ -59,12 +59,12 @@ public class Indica extends HFBlockCrops {
     @Override
     protected Item getCrop() {
     	if (!HempFarmer.drugs){
-    		return HFItems.raw_hemp;
+    		return HFItems.violet_raw_hemp;
     	}
     	Item crop;
     	Random random = new Random();
     	int x = random.nextInt(100) + 1;
-    	crop = x > 70 ? HFItems.bud : HFItems.indica_bud;
+    	crop = x > 70 ? HFItems.violet_raw_hemp : HFItems.indica_bud;
         return crop;
     }
     
