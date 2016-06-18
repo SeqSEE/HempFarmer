@@ -44,6 +44,7 @@ public class VersionChecker implements Runnable {
     			e.printStackTrace();
     		} 
     		catch (IOException e) {
+    			latestRev = "Not Checked!";
     			e.printStackTrace();
     		}
     		try {
