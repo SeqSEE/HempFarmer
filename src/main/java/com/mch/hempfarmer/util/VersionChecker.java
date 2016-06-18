@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 import org.apache.commons.io.IOUtils;
 
@@ -32,31 +33,34 @@ public class VersionChecker implements Runnable {
 
     @Override
     public void run() {
-        InputStream versionFile = null;
-        try{
-        	versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest").openStream();
-        } 
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        } 
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            latestRev = IOUtils.readLines(versionFile).get(0);
-        } 
-        catch (IOException e) {
-
-            e.printStackTrace();
-        } 
-        finally {
-            IOUtils.closeQuietly(versionFile);
-        }
-        HempFarmer.latest = latestRev;
-        System.out.println("Latest " + Reference.NAME + " version:" + latestRev);
-        HempFarmer.isLatest = Reference.VER.equals(latestRev);
-        String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER + "    You are running a different version!";
-        System.out.println(output);
+    	
+    	
+    	if (networkAvailable()){
+    		InputStream versionFile = null;
+    		try{
+    			versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest").openStream();
+    		} 
+    		catch (MalformedURLException e) {
+    			e.printStackTrace();
+    		} 
+    		catch (IOException e) {
+    			e.printStackTrace();
+    		}
+    		try {
+    			latestRev = IOUtils.readLines(versionFile).get(0);
+    		} 
+    		catch (IOException e) {
+    			e.printStackTrace();
+    		} 
+    		finally {
+    			IOUtils.closeQuietly(versionFile);
+    		}
+    		HempFarmer.latest = latestRev;
+    		System.out.println("Latest " + Reference.NAME + " version:" + latestRev);
+    		HempFarmer.isLatest = Reference.VER.equals(latestRev);
+    		String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER + "    You are running a different version!";
+    		System.out.println(output);
+    	}
         
     }
     
@@ -83,5 +87,23 @@ public class VersionChecker implements Runnable {
             HempFarmer.warned = true;
     	}
     	return warned;
+    }
+    
+    private static boolean networkAvailable(){
+    	try {
+    		final URL url = new URL("http://www.google.com");
+    		final URLConnection con = url.openConnection();
+    		con.connect();
+    		return true;
+    	} 
+    	catch (MalformedURLException e) {
+    		throw new RuntimeException(e);
+    		
+    	}
+    	catch (IOException e) {
+    		System.out.println("No network/Network error");
+    		System.out.println("Skipping HempFarmer updates.");
+    		return false;
+    	}	    	
     }
 }
