@@ -91,6 +91,10 @@ public class HFRecipes {
 				"hh ",
 				"hr ",
 				"  h", 'r', new ItemStack(HFItems.resin), 'h', new ItemStack(HFItems.dry_hemp));
+		GameRegistry.addRecipe(new ItemStack(Items.LEAD),
+				"hh ",
+				"hs ",
+				"  h", 's', new ItemStack(Items.SLIME_BALL), 'h', new ItemStack(HFItems.dry_hemp));
 		//Hemp Oil//- Shaped Recipe
 		GameRegistry.addRecipe(new ItemStack(HFItems.hemp_oil),
 				"sss",
@@ -125,7 +129,7 @@ public class HFRecipes {
 		GameRegistry.addRecipe(new ItemStack(HFItems.lime_burlap_chestplate),
 				"b b",
 				"bbb",
-				"bbb", 'b', new ItemStack(HFBlocks.burlap));
+				"bbb", 'b', new ItemStack(HFBlocks.lime_burlap));
 		GameRegistry.addRecipe(new ItemStack(HFItems.lime_burlap_helmet),
 				"bbb",
 				"b b",
