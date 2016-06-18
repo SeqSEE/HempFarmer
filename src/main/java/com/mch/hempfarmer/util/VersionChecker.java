@@ -35,7 +35,7 @@ public class VersionChecker implements Runnable {
     public void run() {
     	
     	
-    	if (networkAvailable()){
+    	if (Networking.networkAvailable()){
     		InputStream versionFile = null;
     		try{
     			versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest").openStream();
@@ -60,6 +60,10 @@ public class VersionChecker implements Runnable {
     		HempFarmer.isLatest = Reference.VER.equals(latestRev);
     		String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER + "    You are running a different version!";
     		System.out.println(output);
+    	}
+    	else {
+    		System.out.println("No network/Network error");
+    		System.out.println("Skipping HempFarmer updates.");
     	}
         
     }
@@ -87,23 +91,5 @@ public class VersionChecker implements Runnable {
             HempFarmer.warned = true;
     	}
     	return warned;
-    }
-    
-    private static boolean networkAvailable(){
-    	try {
-    		final URL url = new URL("http://www.google.com");
-    		final URLConnection con = url.openConnection();
-    		con.connect();
-    		return true;
-    	} 
-    	catch (MalformedURLException e) {
-    		throw new RuntimeException(e);
-    		
-    	}
-    	catch (IOException e) {
-    		System.out.println("No network/Network error");
-    		System.out.println("Skipping HempFarmer updates.");
-    		return false;
-    	}	    	
     }
 }
