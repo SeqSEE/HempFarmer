@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mch.hempfarmer.block.burlap.BlockBurlap;
+import com.mch.hempfarmer.block.burlap.LimeBurlap;
 import com.mch.hempfarmer.block.burlap.OilyBurlap;
+import com.mch.hempfarmer.block.burlap.ResinBurlap;
+import com.mch.hempfarmer.block.burlap.VioletBurlap;
 import com.mch.hempfarmer.block.cannibis.Hemp;
 import com.mch.hempfarmer.block.cannibis.Indica;
 import com.mch.hempfarmer.block.cannibis.Sativa;
@@ -28,10 +31,10 @@ public class HFBlocks extends Blocks{
 	public static List<Block> blocks = new ArrayList();
 	
 	public static Block burlap = new BlockBurlap("burlap");
+	public static Block lime_burlap = new LimeBurlap("lime_burlap");
+	public static Block violet_burlap = new VioletBurlap("violet_burlap");
 	public static Block oily_burlap = new OilyBurlap("oily_burlap");
-	public static Block resin_burlap = new BlockBurlap("resin_burlap");
-	public static Block lime_burlap = new BlockBurlap("lime_burlap");
-	public static Block violet_burlap = new BlockBurlap("violet_burlap");
+	public static Block resin_burlap = new ResinBurlap("resin_burlap");
 	public static Block hemp_crop = new Hemp("hemp_crop");
 	public static Block indica_crop = new Indica("indica_crop");
 	public static Block sativa_crop = new Sativa("sativa_crop");

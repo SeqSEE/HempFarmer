@@ -4,6 +4,7 @@ import com.mch.hempfarmer.init.HFBlocks;
 import com.mch.hempfarmer.init.HFItems;
 import com.mch.hempfarmer.init.HFRecipes;
 import com.mch.hempfarmer.util.Config;
+import com.mch.hempfarmer.util.Networking;
 import com.mch.hempfarmer.util.VersionChecker;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -28,7 +29,13 @@ public class CommonProxy {
 	}
 	
 	public void postInit(FMLPostInitializationEvent postEvent) {
-		VersionChecker.check(postEvent);
+		if (Networking.networkAvailable()){
+			VersionChecker.check(postEvent);
+	    }
+		else {
+    		System.out.println("No network/Network error");
+    		System.out.println("Skipping HempFarmer updates.");
+    	}
 	}
 	
 	public void registerRender(FMLInitializationEvent event) {

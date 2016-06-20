@@ -33,40 +33,31 @@ public class VersionChecker implements Runnable {
 
     @Override
     public void run() {
-    	
-    	
-    	if (Networking.networkAvailable()){
-    		InputStream versionFile = null;
-    		try{
-    			versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest").openStream();
-    		} 
-    		catch (MalformedURLException e) {
-    			e.printStackTrace();
-    		} 
-    		catch (IOException e) {
-    			latestRev = "Not Checked!";
-    			e.printStackTrace();
-    		}
-    		try {
-    			latestRev = IOUtils.readLines(versionFile).get(0);
-    		} 
-    		catch (IOException e) {
-    			e.printStackTrace();
-    		} 
-    		finally {
-    			IOUtils.closeQuietly(versionFile);
-    		}
-    		HempFarmer.latest = latestRev;
-    		System.out.println("Latest " + Reference.NAME + " version:" + latestRev);
-    		HempFarmer.isLatest = Reference.VER.equals(latestRev);
-    		String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER + "    You are running a different version!";
-    		System.out.println(output);
+
+    	InputStream versionFile = null;
+    	try{
+    		versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest").openStream();
+    	} 
+    	catch (MalformedURLException e) {
+    		e.printStackTrace();
+    	} 
+    	catch (IOException e) {
+    		e.printStackTrace();
     	}
-    	else {
-    		System.out.println("No network/Network error");
-    		System.out.println("Skipping HempFarmer updates.");
+    	try {
+    		latestRev = IOUtils.readLines(versionFile).get(0);
+    	} 
+    	catch (IOException e) {
+    			e.printStackTrace();
+    	} 
+    	finally {
+    		IOUtils.closeQuietly(versionFile);
     	}
-        
+    	HempFarmer.latest = latestRev;
+    	System.out.println("Latest " + Reference.NAME + " version:" + latestRev);
+    	HempFarmer.isLatest = Reference.VER.equals(latestRev);
+    	String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER + "    You are running a different version!";
+    	System.out.println(output);        
     }
     
     public boolean isLatestVersion() {
