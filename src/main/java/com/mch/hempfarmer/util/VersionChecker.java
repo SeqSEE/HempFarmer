@@ -33,7 +33,6 @@ public class VersionChecker implements Runnable {
 
     @Override
     public void run() {
-
     	InputStream versionFile = null;
     	try{
     		versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest").openStream();
