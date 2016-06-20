@@ -22,6 +22,8 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Joint extends HFDrug{
 	
@@ -43,17 +45,8 @@ public class Joint extends HFDrug{
     }
 	@Override
     @Nullable
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entity) {
+    public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
         --stack.stackSize;
-        double x = entity.lastTickPosX;
-		double y = entity.lastTickPosY + 1.6;
-		double z = entity.lastTickPosZ;
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x - 0.2, y, z - 0.2, -0.05, 0.05, 0.05);
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0.05, -0.05, 0.05);
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + 0.2, y, z + 0.2, 0.05, 0.05, -0.05);
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x - 0.2, y, z - 0.2, 0.05, -0.05, -0.05);
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, -0.05, -0.05, 0.05);
-		worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + 0.2, y, z + 0.2, -0.05, -0.05, -0.05);
 		Random random = new Random();
         int a = random.nextInt(500) + 100;
         int b = random.nextInt(2) + 1;
@@ -63,7 +56,7 @@ public class Joint extends HFDrug{
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(8), a, b, true, false));
         a = random.nextInt(20) + 10;
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(9), a, 1, true, false));
-        entity.getBrightnessForRender(0.2F);
+        smoke(entity, world);
         return stack;
     }
 	@Override
@@ -73,4 +66,18 @@ public class Joint extends HFDrug{
 	 public EnumAction getItemUseAction(ItemStack stack){
 	        return EnumAction.BOW;
 	    }
+	 
+
+	 public void smoke(EntityLivingBase entity, World world){
+		 double x = entity.lastTickPosX;
+		 double y = entity.lastTickPosY + 1.5;
+		 double z = entity.lastTickPosZ;
+		 world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x - 0.2, y, z - 0.2, -0.05, 0.05, 0.05);
+		 world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0.05, -0.05, 0.05);
+		 world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + 0.2, y, z + 0.2, 0.05, 0.05, -0.05);
+		 world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x - 0.2, y, z - 0.2, 0.05, -0.05, -0.05);
+		 world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, -0.05, -0.05, 0.05);
+		 world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x + 0.2, y, z + 0.2, -0.05, -0.05, -0.05);
+	 }
+	 
 }

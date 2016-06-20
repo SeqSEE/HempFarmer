@@ -1,4 +1,4 @@
-package com.mch.hempfarmer.block;
+package com.mch.hempfarmer.block.burlap;
 
 import com.mch.hempfarmer.block.material.HFMaterial;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
@@ -13,22 +13,24 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockBurlap extends BlockBreakable{
+public class BlockBurlap extends Block{
 
     protected static final AxisAlignedBB BURLAP_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
 
 	public BlockBurlap(String name) {
-        super(HFMaterial.BURLAP, true);
+        super(HFMaterial.BURLAP);
         this.setTickRandomly(true);
         this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFMaterials);
+		this.lightOpacity = 0;
 		addToBlocks(this);
 	}
 
@@ -67,6 +69,10 @@ public class BlockBurlap extends BlockBreakable{
         {
             entityIn.fall(fallDistance, 0.0F);
         }
+    }
+    @Override
+    public boolean isBlockSolid(IBlockAccess worldIn, BlockPos pos, EnumFacing side) {
+        return true;
     }
 
 }
