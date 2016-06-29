@@ -7,3 +7,4 @@
 - Update Drug Effect visuals (Build custom shader?)
 - Tweak drugs effects (Mostly the joints and fall protection tweaks)
 - Commands(at this point to change and reload the config)?
+- 1.9.4 latest file + change the way that version checks to pint at this
