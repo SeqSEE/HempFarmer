@@ -1,6 +1,9 @@
-- Go over Item/Block Models/Textures.
-- Crops Config (drop amounts)
 - Burlap carpet effects
-- Armor Effects
+- Burlap Blocks (Burlap-Fall Protection, OilyBurlap-Slippery, ResinBurlap-Blast Protection, VioletBurlap-Trampoline, LimeBurlap-Healthregen)
+- Leaf Wand (special transmutation wand tool) for sand, gravel, coarse dirt, clay, dirt, grass, podzol
+- Special Dirts (Oily, Resin, Violet, Lime)
+- Armor Effects (particles and buffs)
+- Fix Shield model (2nd layer on hand pokes through at least for Steve)
 - Update Drug Effect visuals (Build custom shader?)
-- Commands?
+- Tweak drugs effects (Mostly the joints and fall protection tweaks)
+- Commands(at this point to change and reload the config)?
