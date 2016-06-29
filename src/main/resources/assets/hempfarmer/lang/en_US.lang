@@ -46,6 +46,7 @@ item.resin_burlap_helmet.name=Resin Burlap Helmet
 item.resin_sword.name=Resin Sword
 item.resin_shield.name=Resin Shield
 item.leaf_wand.name=Leaf Wand
+item.superior_leaf_wand=Superior Leaf Wand
 
 tile.hemp_crop.name=Hemp Seedling
 tile.indica_crop.name=Indica Seedling
