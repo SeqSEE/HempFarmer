@@ -1,7 +1,6 @@
-- lime violet and resin Burlap carpet effects (change block underneath to special dirt)
-- Burlap Blocks (ResinBurlap-Blast Protection, VioletBurlap-Trampoline, LimeBurlap-Healthregen)
+- Lime, Violet and Resin Burlap carpet effects(ResinBurlap-Blast Protection, VioletBurlap-Trampoline, LimeBurlap-Healthregen)
 - Special Dirts (Resin, Violet, Lime)
-- Armor Effects (particles and buffs)
+- Armor Effects (Particles and buffs)
 - Update Drug Effect visuals (Build custom shader?)
 - Tweak drugs effects (Mostly the joints and fall protection tweaks)
-- Commands(at this point to change and reload the config)?
+- Commands(At this point... change drugs, version and reload the config)?
