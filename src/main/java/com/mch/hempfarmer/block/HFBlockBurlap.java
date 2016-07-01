@@ -1,4 +1,4 @@
-package com.mch.hempfarmer.block.burlap;
+package com.mch.hempfarmer.block;
 
 import com.mch.hempfarmer.block.material.HFMaterial;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
@@ -9,6 +9,7 @@ import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.BlockCarpet;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -26,54 +27,61 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBurlap extends BlockBreakable{
+public class HFBlockBurlap extends BlockBreakable {
 	
-	protected static final AxisAlignedBB BURLAP_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
-
-	public BlockBurlap(String name) {
-		super(HFMaterial.BURLAP, false);
+	protected static AxisAlignedBB AABB;
+	
+	public HFBlockBurlap(Material material, String name) {
+		super(material , false);
         this.setRegistryName(name);
 		this.setUnlocalizedName(name);
+		this.blockSoundType = Blocks.HAY_BLOCK.getSoundType();
 		this.setCreativeTab(HFCreativeTabs.HFMaterials);
 		addToBlocks(this);
 	}
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return BURLAP_AABB;
+		AxisAlignedBB aabb;
+		if (state.getBlock().getRegistryName().toString().endsWith("_block")) {
+			AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
+		}
+		else {
+			AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.0625D, 1.0D);
+		}
+		return AABB;
     }
 
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
     }
-
-	@Override
-	public boolean isFullCube(IBlockState state) {
-        return false;
-    }
 	
 	@Override
     public boolean canPlaceBlockAt(World world, BlockPos pos) {
         return super.canPlaceBlockAt(world, pos) && this.canBlockStay(world, pos);
     }
-
+	
     @Override
-    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-            entityIn.fall(fallDistance = 0, 0.0F);
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
+        this.checkForDrop(worldIn, pos, state);
     }
-    
+   
     @Override
     public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-    	IBlockState state = world.getBlockState(pos.down());
-    	BurlappedBlock block = new BurlappedBlock(HFMaterial.BURLAP);
-    	world.setBlockState(pos, block.bulappedBlock(state));
+    	Block block = world.getBlockState(pos.down()).getBlock();
+    	if (block.equals(Blocks.DIRT) || block.equals(Blocks.GRASS)){
+    		world.setBlockState(pos.down(), HFBlocks.covered_dirt.getDefaultState());
+    	}
     	return this.getDefaultState();
     }
     
     @Override
     public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
-    	
+    	Block block = world.getBlockState(pos.down()).getBlock();
+    	if (block.equals(HFBlocks.covered_dirt)){
+    		world.setBlockState(pos.down(), Blocks.DIRT.getDefaultState());
+    	}
     }
     
     @Override
@@ -82,14 +90,32 @@ public class BlockBurlap extends BlockBreakable{
         return BlockRenderLayer.TRANSLUCENT;
     }
     
-	private void addToBlocks(BlockBurlap block) {
+    @Override
+    public boolean isFullCube(IBlockState state)    {
+    	boolean fullCube = state.getBlock().getRegistryName().toString().endsWith("_block");
+		return fullCube;
+    }
+    
+	private void addToBlocks(HFBlockBurlap block) {
 		HFBlocks.blocks.add(block);
 	}
 	
 	private boolean canBlockStay(World world, BlockPos pos) {
-		boolean isAirBlock = world.isAirBlock(pos.down());
-		boolean isLiquidBlock = world.getBlockState(pos.down()).getMaterial().isLiquid();
-        return (!isAirBlock && !isLiquidBlock);
+		return (world.getBlockState(pos.down()).isNormalCube());
     }
+	
+
+    private boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state) {
+        if (!this.canBlockStay(worldIn, pos)) {
+            HFBlocks.burlap.dropBlockAsItem(worldIn, pos, state, 0);
+            worldIn.setBlockToAir(pos);
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+	
+
 
 }

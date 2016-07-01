@@ -1,10 +1,38 @@
 package com.mch.hempfarmer.block.burlap;
 
-public class ResinBurlap extends BlockBurlap{
+import com.mch.hempfarmer.block.HFBlockBurlap;
+import com.mch.hempfarmer.init.HFBlocks;
 
-	public ResinBurlap(String name) {
-		super(name);
-		// TODO Auto-generated constructor stub
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+public class ResinBurlap extends HFBlockBurlap{
+
+	public ResinBurlap(Material material, String name) {
+		super(material, name);
 	}
+	
+    @Override
+    public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
+    	Block block = world.getBlockState(pos.down()).getBlock();
+    	if (block.equals(Blocks.DIRT) || block.equals(Blocks.GRASS)){
+    		world.setBlockState(pos.down(), HFBlocks.resin_dirt.getDefaultState());
+    	}
+    	return this.getDefaultState();
+    }
+    
+    @Override
+    public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
+    	Block block = world.getBlockState(pos.down()).getBlock();
+    	if (block.equals(HFBlocks.resin_dirt)){
+    		world.setBlockState(pos.down(), Blocks.DIRT.getDefaultState());
+    	}
+    }
 
 }

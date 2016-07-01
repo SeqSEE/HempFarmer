@@ -16,10 +16,10 @@ public class HFRecipes {
 		//Dried Hemp//- Smelting Recipe
 		GameRegistry.addSmelting(new ItemStack(HFItems.raw_hemp),
 				new ItemStack(HFItems.dry_hemp), 0.1F);
-		//LimeDried Hemp//- Smelting Recipe
+		//Lime Dried Hemp//- Smelting Recipe
 		GameRegistry.addSmelting(new ItemStack(HFItems.lime_raw_hemp),
 				new ItemStack(HFItems.lime_dry_hemp), 0.1F);
-		//VioletDried Hemp//- Smelting Recipe
+		//Violet Dried Hemp//- Smelting Recipe
 		GameRegistry.addSmelting(new ItemStack(HFItems.violet_raw_hemp),
 				new ItemStack(HFItems.violet_dry_hemp), 0.1F);
 		//Hemp Resin//- Smelting Recipe
@@ -28,9 +28,46 @@ public class HFRecipes {
 		//Resin Burlap//- Smelting Recipe
 		GameRegistry.addSmelting(new ItemStack(HFBlocks.oily_burlap),
 				new ItemStack(HFBlocks.resin_burlap), 0.1F);
+		//Resin Burlap Block//- Smelting Recipe
+				GameRegistry.addSmelting(new ItemStack(HFBlocks.oily_burlap_block),
+						new ItemStack(HFBlocks.resin_burlap_block), 0.1F);
+		//Resin Burlap Block//- Shaped Recipes
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.resin_burlap_block),
+				" hh",
+				" hh",
+				"   ", 'h', new ItemStack(HFBlocks.resin_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.resin_burlap_block),
+				"hh ",
+				"hh ", 
+				"   ", 'h', new ItemStack(HFBlocks.resin_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.resin_burlap_block),
+				"   ",
+				"hh ",
+				"hh ", 'h', new ItemStack(HFBlocks.resin_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.resin_burlap_block),
+				"   ",
+				" hh",
+				" hh", 'h', new ItemStack(HFBlocks.resin_burlap));
 		//Oily Burlap//- Shapeless Recipe
 		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.oily_burlap),
 				new ItemStack(HFBlocks.burlap), new ItemStack(HFItems.hemp_oil));
+		//Oily Burlap Block//- Shaped Recipes
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.oily_burlap_block),
+				" hh",
+				" hh",
+				"   ", 'h', new ItemStack(HFBlocks.oily_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.oily_burlap_block),
+				"hh ",
+				"hh ", 
+				"   ", 'h', new ItemStack(HFBlocks.oily_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.oily_burlap_block),
+				"   ",
+				"hh ",
+				"hh ", 'h', new ItemStack(HFBlocks.oily_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.oily_burlap_block),
+				"   ",
+				" hh",
+				" hh", 'h', new ItemStack(HFBlocks.oily_burlap));
 		//Burlap//- Shaped Recipes
 		GameRegistry.addRecipe(new ItemStack(HFBlocks.burlap),
 				" hh",
@@ -48,6 +85,23 @@ public class HFRecipes {
 				"   ",
 				" hh",
 				" hh", 'h', new ItemStack(HFItems.dry_hemp));
+		//Burlap Block//- Shaped Recipes
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.burlap_block),
+				" hh",
+				" hh",
+				"   ", 'h', new ItemStack(HFBlocks.burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.burlap_block),
+				"hh ",
+				"hh ", 
+				"   ", 'h', new ItemStack(HFBlocks.burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.burlap_block),
+				"   ",
+				"hh ",
+				"hh ", 'h', new ItemStack(HFBlocks.burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.burlap_block),
+				"   ",
+				" hh",
+				" hh", 'h', new ItemStack(HFBlocks.burlap));
 		//LimeBurlap//- Shaped Recipes
 		GameRegistry.addRecipe(new ItemStack(HFBlocks.lime_burlap),
 				" hh",
@@ -65,6 +119,23 @@ public class HFRecipes {
 				"   ",
 				" hh",
 				" hh", 'h', new ItemStack(HFItems.lime_dry_hemp));
+		//Lime Burlap Block//- Shaped Recipes
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.lime_burlap_block),
+				" hh",
+				" hh",
+				"   ", 'h', new ItemStack(HFBlocks.lime_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.lime_burlap_block),
+				"hh ",
+				"hh ", 
+				"   ", 'h', new ItemStack(HFBlocks.lime_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.lime_burlap_block),
+				"   ",
+				"hh ",
+				"hh ", 'h', new ItemStack(HFBlocks.lime_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.lime_burlap_block),
+				"   ",
+				" hh",
+				" hh", 'h', new ItemStack(HFBlocks.lime_burlap));
 		//VioletBurlap//- Shaped Recipes
 		GameRegistry.addRecipe(new ItemStack(HFBlocks.violet_burlap),
 				" hh",
@@ -82,6 +153,23 @@ public class HFRecipes {
 				"   ",
 				" hh",
 				" hh", 'h', new ItemStack(HFItems.violet_dry_hemp));
+		//Violet Burlap Block//- Shaped Recipes
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.violet_burlap_block),
+				" hh",
+				" hh",
+				"   ", 'h', new ItemStack(HFBlocks.violet_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.violet_burlap_block),
+				"hh ",
+				"hh ", 
+				"   ", 'h', new ItemStack(HFBlocks.violet_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.violet_burlap_block),
+				"   ",
+				"hh ",
+				"hh ", 'h', new ItemStack(HFBlocks.violet_burlap));
+		GameRegistry.addRecipe(new ItemStack(HFBlocks.violet_burlap_block),
+				"   ",
+				" hh",
+				" hh", 'h', new ItemStack(HFBlocks.violet_burlap));
 		//Vanilla Lead//- Shaped Recipes
 		GameRegistry.addRecipe(new ItemStack(Items.LEAD),
 				"ss ",
@@ -100,6 +188,16 @@ public class HFRecipes {
 				"sss",
 				"gsg", 
 				" g ", 'g', new ItemStack(Blocks.GLASS), 's', new ItemStack(HFItems.seeds_hemp));
+		//Lime Oil//- Shaped Recipe
+		GameRegistry.addRecipe(new ItemStack(HFItems.lime_oil),
+				"sss",
+				"gsg", 
+				" g ", 'g', new ItemStack(Blocks.GLASS), 's', new ItemStack(HFItems.seeds_sativa));
+		//Violet Oil//- Shaped Recipe
+		GameRegistry.addRecipe(new ItemStack(HFItems.violet_oil),
+				"sss",
+				"gsg", 
+				" g ", 'g', new ItemStack(Blocks.GLASS), 's', new ItemStack(HFItems.seeds_indica));
 		//Burlap Armor//- Shaped Recipes
 		GameRegistry.addRecipe(new ItemStack(HFItems.burlap_boots),
 				"   ",
@@ -202,7 +300,28 @@ public class HFRecipes {
 			new ItemStack(HFItems.seeds_indica));
 		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.sativa_crop),
 			new ItemStack(HFItems.seeds_sativa));
-		
+		//Leaf Wand//- Shaped recipe
+		GameRegistry.addRecipe(new ItemStack(HFItems.leaf_wand),
+				"   ", 
+				" l ", 
+				"s  ", 'l', new ItemStack(HFItems.leaf), 's', new ItemStack(Items.STICK));
+		//Superior Leaf Wand//- Shaped recipe
+		GameRegistry.addRecipe(new ItemStack(HFItems.superior_leaf_wand),
+				"   ", 
+				" l ", 
+				"r  ", 'l', new ItemStack(HFItems.leaf), 'r', new ItemStack(HFItems.resin));
+		//Oily Dirt//- Shapeless Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.oily_dirt),
+				new ItemStack(Blocks.DIRT), new ItemStack(HFItems.hemp_oil));
+		//Violet Dirt//- Shapeless Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.violet_dirt),
+				new ItemStack(Blocks.DIRT), new ItemStack(HFItems.violet_oil));
+		//Lime Dirt//- Shapeless Recipe
+		GameRegistry.addShapelessRecipe(new ItemStack(HFBlocks.lime_dirt),
+				new ItemStack(Blocks.DIRT), new ItemStack(HFItems.lime_oil));
+		//Resin Dirt//- Smelting Recipe
+				GameRegistry.addSmelting(new ItemStack(HFBlocks.oily_dirt),
+						new ItemStack(HFBlocks.resin_dirt), 0.1F);
 		
 		if (HempFarmer.drugs == true && HempFarmer.drugsCrafting == true){
 		//Pot Brownies//- Shapeless Recipe
@@ -224,9 +343,12 @@ public class HFRecipes {
 				new ItemStack(HFItems.rolling_paper), new ItemStack(HFItems.sativa_bud),
 				new ItemStack(HFItems.sativa_bud), new ItemStack(HFItems.sativa_bud));
 		}
-	//Register Fun Ores Recipes
+		
+	
+	 	//Register Fun Ores Recipes
 		if (Loader.isModLoaded("FunOres")) {
 			ExternalRecipes.registerFunOres();
 		}
+	
 	}
 }

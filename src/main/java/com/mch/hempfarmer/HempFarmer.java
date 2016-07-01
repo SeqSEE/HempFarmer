@@ -30,26 +30,25 @@ public class HempFarmer {
 	public static boolean drugs = true;
 	
     @SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
-    public static CommonProxy proxy;
+    private static CommonProxy proxy;
 	
-
     @EventHandler
 	public void preInit(FMLPreInitializationEvent preEvent) {
     	proxy.preInit(preEvent);
     }
     
     @EventHandler
-    public void init(FMLInitializationEvent event) {
+    private void init(FMLInitializationEvent event) {
     	proxy.init(event);
     }
     
     @EventHandler
-    public void postInit(FMLPostInitializationEvent postEvent) {
+    private void postInit(FMLPostInitializationEvent postEvent) {
     	proxy.postInit(postEvent);
     }
     
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public void onPlayerTick(PlayerTickEvent event) {
-    	VersionChecker.getWarning(event); 
+    	VersionChecker.getWarning(event);
     }
 }
