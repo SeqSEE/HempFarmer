@@ -66,23 +66,6 @@ public class HFBlockBurlap extends BlockBreakable {
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
         this.checkForDrop(worldIn, pos, state);
     }
-   
-    @Override
-    public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-    	Block block = world.getBlockState(pos.down()).getBlock();
-    	if (block.equals(Blocks.DIRT) || block.equals(Blocks.GRASS)){
-    		world.setBlockState(pos.down(), HFBlocks.covered_dirt.getDefaultState());
-    	}
-    	return this.getDefaultState();
-    }
-    
-    @Override
-    public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
-    	Block block = world.getBlockState(pos.down()).getBlock();
-    	if (block.equals(HFBlocks.covered_dirt)){
-    		world.setBlockState(pos.down(), Blocks.DIRT.getDefaultState());
-    	}
-    }
     
     @Override
     @SideOnly(Side.CLIENT)
@@ -107,7 +90,7 @@ public class HFBlockBurlap extends BlockBreakable {
 
     private boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state) {
         if (!this.canBlockStay(worldIn, pos)) {
-            HFBlocks.burlap.dropBlockAsItem(worldIn, pos, state, 0);
+            this.dropBlockAsItem(worldIn, pos, state, 0);
             worldIn.setBlockToAir(pos);
             return false;
         }

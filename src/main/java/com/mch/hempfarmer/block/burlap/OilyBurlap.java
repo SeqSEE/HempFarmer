@@ -1,6 +1,7 @@
 package com.mch.hempfarmer.block.burlap;
 
 import com.mch.hempfarmer.block.HFBlockBurlap;
+import com.mch.hempfarmer.block.HFBlockDirt;
 import com.mch.hempfarmer.init.HFBlocks;
 
 import net.minecraft.block.Block;
@@ -24,7 +25,11 @@ public class OilyBurlap extends HFBlockBurlap{
     public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
     	Block block = world.getBlockState(pos.down()).getBlock();
     	if (block.equals(Blocks.DIRT) || block.equals(Blocks.GRASS)){
-    		world.setBlockState(pos.down(), HFBlocks.oily_dirt.getDefaultState());
+    		if (!this.getRegistryName().toString().endsWith("_block")) {
+    			HFBlockDirt blockOut = (HFBlockDirt)HFBlocks.oily_dirt;
+    			blockOut.fromOil = false;
+    			world.setBlockState(pos.down(), blockOut.getDefaultState());
+    		}
     	}
     	return this.getDefaultState();
     }

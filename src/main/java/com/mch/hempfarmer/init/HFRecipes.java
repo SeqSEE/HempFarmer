@@ -349,6 +349,7 @@ public class HFRecipes {
 		if (Loader.isModLoaded("FunOres")) {
 			ExternalRecipes.registerFunOres();
 		}
+
 	
 	}
 }

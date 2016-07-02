@@ -2,6 +2,7 @@ package com.mch.hempfarmer.item;
 
 import javax.annotation.Nullable;
 
+import com.mch.hempfarmer.block.HFBlockDirt;
 import com.mch.hempfarmer.init.HFBlocks;
 
 import net.minecraft.block.Block;
@@ -34,12 +35,19 @@ public class HFOil extends HFItem{
 				oilType++;
 			}
 			IBlockState state;
+			HFBlockDirt blockOut;
 			switch (oilType){
-			case 1: state = HFBlocks.lime_dirt.getDefaultState();
+			case 1: blockOut = (HFBlockDirt)HFBlocks.lime_dirt;
+					blockOut.fromOil = true;
+					state = HFBlocks.lime_dirt.getDefaultState();
 					break;
-			case 2: state = HFBlocks.violet_dirt.getDefaultState();
+			case 2: blockOut = (HFBlockDirt)HFBlocks.violet_dirt;
+					blockOut.fromOil = true;
+					state = HFBlocks.violet_dirt.getDefaultState();
 					break;
-			default: state = HFBlocks.oily_dirt.getDefaultState();
+			default: blockOut = (HFBlockDirt)HFBlocks.oily_dirt;
+					blockOut.fromOil = true;
+					state = HFBlocks.oily_dirt.getDefaultState();
 					break;
 			}
 			world.setBlockState(pos, state);

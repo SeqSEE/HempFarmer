@@ -35,7 +35,7 @@ public class VersionChecker implements Runnable {
     public void run() {
     	InputStream versionFile = null;
     	try{
-    		versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest-1.10").openStream();
+    		versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest-1.10.2").openStream();
     	} 
     	catch (MalformedURLException e) {
     		e.printStackTrace();
