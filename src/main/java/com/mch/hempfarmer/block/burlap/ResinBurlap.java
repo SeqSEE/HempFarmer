@@ -32,7 +32,9 @@ public class ResinBurlap extends HFBlockBurlap{
     		if (!this.getRegistryName().toString().endsWith("_block")) {
     			HFBlockDirt blockOut = (HFBlockDirt)HFBlocks.resin_dirt;
     			blockOut.fromOil = false;
+    			if (!world.isRemote) {
     			world.setBlockState(pos.down(), blockOut.getDefaultState());
+    			}
     		}
     	}
     	return this.getDefaultState();
@@ -42,7 +44,9 @@ public class ResinBurlap extends HFBlockBurlap{
     public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
     	Block block = world.getBlockState(pos.down()).getBlock();
     	if (block.equals(HFBlocks.resin_dirt)){
+    		if (!world.isRemote) {
     		world.setBlockState(pos.down(), Blocks.DIRT.getDefaultState());
+    		}
     	}
     }
     

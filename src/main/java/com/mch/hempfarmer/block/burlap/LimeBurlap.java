@@ -27,9 +27,12 @@ public class LimeBurlap extends HFBlockBurlap{
     	
     	Block block = world.getBlockState(pos.down()).getBlock();
     	if (block.equals(Blocks.DIRT) || block.equals(Blocks.GRASS)){
-    		if (!this.getRegistryName().toString().endsWith("_block")) {    			HFBlockDirt blockOut = (HFBlockDirt)HFBlocks.lime_dirt;
+    		if (!this.getRegistryName().toString().endsWith("_block")) {    			
+    			HFBlockDirt blockOut = (HFBlockDirt)HFBlocks.lime_dirt;
     			blockOut.fromOil = false;
+    			if (!world.isRemote) {
     			world.setBlockState(pos.down(), blockOut.getDefaultState());
+    			}
     		}
     	}
     	return this.getDefaultState();
@@ -39,7 +42,9 @@ public class LimeBurlap extends HFBlockBurlap{
     public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
     	Block block = world.getBlockState(pos.down()).getBlock();
     	if (block.equals(HFBlocks.lime_dirt)){
+    		if (!world.isRemote) {
     		world.setBlockState(pos.down(), Blocks.DIRT.getDefaultState());
+    		}
     	}
     }
     
@@ -52,7 +57,9 @@ public class LimeBurlap extends HFBlockBurlap{
     			player = world.getPlayerEntityByName(entity.getName());	
     		}
     		if (player != null){
-    			player.heal(0.1F);
+    			if (!world.isRemote) {
+    				player.heal(0.1F);
+    			}
     		}
     	}
     }

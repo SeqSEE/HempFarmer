@@ -58,8 +58,12 @@ public class VioletDirt extends HFBlockDirt {
 			player = world.getPlayerEntityByName(entity.getName());	
 		}
 		if (player != null){
-			player.setVelocity(0.0, 1.75, 0.0);
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 60, 5));
+			if (!world.isRemote) {
+				player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 60, 5));
+			}
+			else {
+				player.setVelocity(0.0, 1.75, 0.0);
+			}
 		}
 	}
 }

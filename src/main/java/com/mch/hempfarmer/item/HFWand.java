@@ -8,6 +8,9 @@ import com.mch.hempfarmer.init.HFBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -43,21 +46,34 @@ public class HFWand extends HFItem{
 	@Override
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		IBlockState state = world.getBlockState(pos);
+		IBlockState newState = null;
+		boolean changable = false;
         if (state.getBlock().equals(Blocks.COBBLESTONE)){
-        	world.setBlockState(pos, Blocks.GRAVEL.getDefaultState());
-        	stack.damageItem(1, player);
+        	changable = true;
+        	newState = Blocks.GRAVEL.getDefaultState();
         }
         else if (state.getBlock().equals(Blocks.GRAVEL)){
-        	world.setBlockState(pos, Blocks.SAND.getDefaultState());
-        	stack.damageItem(1, player);
+        	changable = true;
+       		newState = Blocks.SAND.getDefaultState();
         }
         else if (state.getBlock().equals(Blocks.SAND)){
-        	world.setBlockState(pos, Blocks.CLAY.getDefaultState());
-        	stack.damageItem(1, player);
+        	changable = true;
+        	newState = Blocks.CLAY.getDefaultState();
         }
-		return EnumActionResult.PASS;
+        if (changable && player.canPlayerEdit(pos, facing, stack)){
+        	world.setBlockState(pos, newState);
+        	stack.damageItem(1, player);
+        	return EnumActionResult.SUCCESS;
+        }
+        else {
+        	return EnumActionResult.FAIL;
+        }
     }
 	
-	
+	@Override
+	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
+		entity.setVelocity(0.0, 1.5, 0);
+		return true;
+    }
 
 }

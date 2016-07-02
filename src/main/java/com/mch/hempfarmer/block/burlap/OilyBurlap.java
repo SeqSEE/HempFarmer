@@ -28,7 +28,9 @@ public class OilyBurlap extends HFBlockBurlap{
     		if (!this.getRegistryName().toString().endsWith("_block")) {
     			HFBlockDirt blockOut = (HFBlockDirt)HFBlocks.oily_dirt;
     			blockOut.fromOil = false;
+    			if (!world.isRemote) {
     			world.setBlockState(pos.down(), blockOut.getDefaultState());
+    			}
     		}
     	}
     	return this.getDefaultState();
@@ -38,7 +40,9 @@ public class OilyBurlap extends HFBlockBurlap{
     public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
     	Block block = world.getBlockState(pos.down()).getBlock();
     	if (block.equals(HFBlocks.oily_dirt)){
+    		if (!world.isRemote) {
     		world.setBlockState(pos.down(), Blocks.DIRT.getDefaultState());
+    		}
     	}
     }
 

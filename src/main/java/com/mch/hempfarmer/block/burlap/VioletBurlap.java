@@ -30,7 +30,9 @@ public class VioletBurlap extends HFBlockBurlap{
     		if (!this.getRegistryName().toString().endsWith("_block")) {
     			HFBlockDirt blockOut = (HFBlockDirt)HFBlocks.violet_dirt;
     			blockOut.fromOil = false;
+    			if (!world.isRemote) {
     			world.setBlockState(pos.down(), blockOut.getDefaultState());
+    			}
     		}
     	}
     	return this.getDefaultState();
@@ -40,7 +42,9 @@ public class VioletBurlap extends HFBlockBurlap{
     public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
     	Block block = world.getBlockState(pos.down()).getBlock();
     	if (block.equals(HFBlocks.violet_dirt)){
+    		if (!world.isRemote) {
     		world.setBlockState(pos.down(), Blocks.DIRT.getDefaultState());
+    		}
     	}
     }
     
@@ -53,8 +57,13 @@ public class VioletBurlap extends HFBlockBurlap{
     			player = world.getPlayerEntityByName(entity.getName());	
     		}
     		if (player != null){
-    			player.setVelocity(0.0, 1.75, 0.0);
+    			if (!world.isRemote) {
+    			
     			player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 60, 5));
+    			}
+    			else {
+    				player.setVelocity(0.0, 1.75, 0.0);
+    			}
     		}
     	}
     }
