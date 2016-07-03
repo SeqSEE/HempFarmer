@@ -61,6 +61,7 @@ public class HFWand extends HFItem{
         	newState = Blocks.CLAY.getDefaultState();
         }
         if (changable && player.canPlayerEdit(pos, facing, stack)){
+        	world.destroyBlock(pos, false);
         	world.setBlockState(pos, newState);
         	stack.damageItem(1, player);
         	return EnumActionResult.SUCCESS;

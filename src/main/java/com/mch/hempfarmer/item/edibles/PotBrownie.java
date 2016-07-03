@@ -54,19 +54,18 @@ public class PotBrownie extends ItemFood{
 	@Override
     @Nullable
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
-        --stack.stackSize;
         Random random = new Random();
-        int x = random.nextInt(3000) + 1000;
-        int y = random.nextInt(4) + 1;
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(2), x, 1, true, false));
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(17), x, y, true, false));
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(24), x, y, true, false));
+        int x = random.nextInt(1000) + 150;
         entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(8), x, 6, true, false));
-        x = random.nextInt(420) + 100;
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(9), x, 1, true, false));
-        x = random.nextInt(210) + 50;
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(11), x, y, true, false));
-        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(25), x, 1, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(17), x, 1, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(2), x, 1, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(16), x, 5, true, false));
+        x = random.nextInt(400) + 150;
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(9), x, 5, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(11), x + 100, 5, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(24), x - 60, 5, true, false));
+        entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(25), x - 60, 5, true, false));
+        --stack.stackSize;
         return stack;
     }
 	@Override

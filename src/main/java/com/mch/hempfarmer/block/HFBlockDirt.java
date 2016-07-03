@@ -40,6 +40,11 @@ public class HFBlockDirt extends Block{
 	}
 	
 	@Override
+    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
+            entityIn.fall(fallDistance = 0, 0.0F);
+    }
+	
+	@Override
     public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		fromOil = true;
 		return this.getDefaultState();

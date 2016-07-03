@@ -29,7 +29,9 @@ public class Burlap extends HFBlockBurlap{
 		Block block = world.getBlockState(pos.down()).getBlock();
     	if (block.equals(Blocks.DIRT) || block.equals(Blocks.GRASS)){
     		if (!this.getRegistryName().toString().endsWith("_block")) {
+    			if (!world.isRemote) {
     			world.setBlockState(pos.down(), HFBlocks.covered_dirt.getDefaultState());
+    			}
     		}
     	}
     	return this.getDefaultState();
@@ -39,7 +41,9 @@ public class Burlap extends HFBlockBurlap{
     public void onBlockDestroyedByPlayer(World world, BlockPos pos, IBlockState state) {
     	Block block = world.getBlockState(pos.down()).getBlock();
     	if (block.equals(HFBlocks.covered_dirt)){
+    		if (!world.isRemote) {
     		world.setBlockState(pos.down(), Blocks.DIRT.getDefaultState());
+    		}
     	}
     }
 

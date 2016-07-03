@@ -345,11 +345,11 @@ public class HFRecipes {
 		}
 		
 	
-	 	//Register Fun Ores Recipes
+	 	/*Register Fun Ores Recipes
 		if (Loader.isModLoaded("FunOres")) {
 			ExternalRecipes.registerFunOres();
 		}
-
+		*/
 	
 	}
 }

@@ -24,11 +24,6 @@ public class CoveredDirt extends HFBlockDirt{
 	}
 
 	@Override
-    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
-            entityIn.fall(fallDistance = 0, 0.0F);
-    }
-	
-	@Override
 	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		List<ItemStack> ret = new ArrayList<ItemStack>();
 		Random rand = world instanceof World ? ((World)world).rand : RANDOM;

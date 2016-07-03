@@ -74,6 +74,11 @@ public class HFBlockBurlap extends BlockBreakable {
     }
     
     @Override
+    public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
+            entityIn.fall(fallDistance = 0, 0.0F);
+    }
+    
+    @Override
     public boolean isFullCube(IBlockState state)    {
     	boolean fullCube = state.getBlock().getRegistryName().toString().endsWith("_block");
 		return fullCube;
@@ -89,15 +94,22 @@ public class HFBlockBurlap extends BlockBreakable {
 	
 
     private boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state) {
-        if (!this.canBlockStay(worldIn, pos)) {
-            this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.setBlockToAir(pos);
-            return false;
+    	boolean drop;
+    	if (!this.isFullCube(state)){
+        	if (!this.canBlockStay(worldIn, pos)) {
+        		this.dropBlockAsItem(worldIn, pos, state, 0);
+        		worldIn.setBlockToAir(pos);
+        		drop = false;
+        	}
+        	else {
+            drop = true;
+        	}
         }
         else {
-            return true;
+        	drop = true;
         }
-    }
+        return drop;
+        }
 	
 
 
