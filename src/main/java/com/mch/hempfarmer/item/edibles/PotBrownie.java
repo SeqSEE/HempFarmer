@@ -55,7 +55,7 @@ public class PotBrownie extends ItemFood{
     @Nullable
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
         Random random = new Random();
-        int x = random.nextInt(1000) + 150;
+        int x = random.nextInt(1000) + 250;
         entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(8), x, 6, true, false));
         entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(17), x, 1, true, false));
         entityLiving.addPotionEffect(new PotionEffect(Potion.getPotionById(2), x, 1, true, false));

@@ -17,7 +17,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class Sativa extends HFBlockCrops{
-	
+		
 	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
     private static final AxisAlignedBB[] SATIVA_AABB = new AxisAlignedBB[] {
     		new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.19D, 1.0D),
@@ -78,8 +78,8 @@ public class Sativa extends HFBlockCrops{
             int k = 3 + fortune;
             for (int i = 0; i < 3 + fortune; ++i) {
                 if (rand.nextInt(2 * getMaxAge()) <= age) {
-                    ret.add(new ItemStack(this.getSeed(), rand.nextInt(2), 0));
-                    ret.add(new ItemStack(this.getCrop(), rand.nextInt(4) + 1, 0));
+                    ret.add(new ItemStack(this.getSeed(), this.seedsCropAmount));
+                    ret.add(new ItemStack(this.getCrop(), this.hempAmount));
                 }
             }
         }

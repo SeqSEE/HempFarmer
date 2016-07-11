@@ -47,15 +47,11 @@ public class Joint extends HFDrug{
     @Nullable
     public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
         --stack.stackSize;
-		Random random = new Random();
-        int a = random.nextInt(500) + 100;
-        int b = random.nextInt(2) + 1;
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(2), a, 1, true, false));
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(17), a, b, true, false));
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(24), a, b, true, false));
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(8), a, b, true, false));
-        a = random.nextInt(20) + 10;
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(9), a, 1, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(2), 400, 1, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 400, 2, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 50, 3, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(17), 150, 1, true, false));
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(24), 400, 2, true, false));
         smoke(entity, world);
         return stack;
     }
@@ -63,15 +59,17 @@ public class Joint extends HFDrug{
     public int getMaxItemUseDuration(ItemStack stack) {
         return 16;
     }
-	 public EnumAction getItemUseAction(ItemStack stack){
+	
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack){
 	        return EnumAction.BOW;
 	    }
 	 
 
 	 public void smoke(EntityLivingBase entity, World world){
-		 double x = entity.lastTickPosX;
-		 double y = entity.lastTickPosY + 1.5;
-		 double z = entity.lastTickPosZ;
+		 double x = entity.posX;
+		 double y = entity.posY + 1.5;
+		 double z = entity.posZ;
 		 world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x - 0.2, y, z - 0.2, -0.05, 0.05, 0.05);
 		 world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, x, y, z, 0.05, -0.05, 0.05);
 		 world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + 0.2, y, z + 0.2, 0.05, 0.05, -0.05);

@@ -17,7 +17,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class Indica extends HFBlockCrops {
-	
 	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 7);
 	private static final AxisAlignedBB[] INDICA_AABB = new AxisAlignedBB[] {
 			new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D),
@@ -28,6 +27,7 @@ public class Indica extends HFBlockCrops {
 			new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.75D, 1.0D),
 			new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.755D, 1.0D),
 			new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.76D, 1.0D)};
+	
 	
 	public Indica(String name) {
 		super(name);

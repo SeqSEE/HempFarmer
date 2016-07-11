@@ -1,9 +1,12 @@
 package com.mch.hempfarmer;
 
 import com.mch.hempfarmer.proxy.CommonProxy;
+import com.mch.hempfarmer.util.Config;
 import com.mch.hempfarmer.util.VersionChecker;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -14,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 
 @Mod(modid = Reference.ID, name = Reference.NAME, version = Reference.VER)
 public class HempFarmer {
@@ -22,7 +26,8 @@ public class HempFarmer {
 	@Instance(value = "hempfarmer")
     public static HempFarmer instance;
 	public static VersionChecker versionChecker;
-	public static boolean getUpdates;
+	public static boolean configSynced = false;
+	public static boolean getUpdates = true;
 	public static String latest;
 	public static boolean isLatest = false;
 	public static boolean warned = false;
@@ -49,6 +54,8 @@ public class HempFarmer {
     
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public void onPlayerTick(PlayerTickEvent event) {
-    	VersionChecker.getWarning(event);
+    	proxy.VersionCheck(event);
     }
+    
+    
 }

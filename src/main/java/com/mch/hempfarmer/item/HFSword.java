@@ -3,7 +3,10 @@ package com.mch.hempfarmer.item;
 import com.mch.hempfarmer.creativetab.HFCreativeTabs;
 import com.mch.hempfarmer.init.HFItems;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
@@ -15,9 +18,10 @@ public class HFSword extends ItemSword{
 	private final float attackDamage;
 	private final ToolMaterial material;
 	
-	public HFSword(String name, ToolMaterial material) {
+	public HFSword(String name, ToolMaterial material, Item item) {
 		super(material);
 		this.material = material;
+		material.setRepairItem(new ItemStack(item));
 		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(HFCreativeTabs.HFCombat);
@@ -29,7 +33,8 @@ public class HFSword extends ItemSword{
 	private void addToItems(Item item) {
 		HFItems.items.add(item);
 	}
-
-
+	
 
 }
+
+

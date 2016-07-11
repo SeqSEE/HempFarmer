@@ -15,6 +15,7 @@ item.violet_raw_hemp.name=Violet Hemp
 item.dry_hemp.name=Dried Hemp
 item.lime_dry_hemp.name=Dried Lime Hemp
 item.violet_dry_hemp.name=Dried Violet Hemp
+item.hemp_paper.name=Hemp Paper
 item.hemp_oil.name=Hemp Oil
 item.violet_oil.name=Violet Oil
 item.lime_oil.name=Lime Oil
@@ -49,8 +50,6 @@ item.resin_burlap_chestplate.name=Resin Burlap Chestplate
 item.resin_burlap_helmet.name=Resin Burlap Helmet
 item.resin_sword.name=Resin Sword
 item.resin_shield.name=Resin Shield
-item.leaf_wand.name=Leaf Wand
-item.superior_leaf_wand=Superior Leaf Wand
 
 tile.hemp_crop.name=Hemp Seedling
 tile.indica_crop.name=Indica Seedling
@@ -60,11 +59,7 @@ tile.burlap_block.name=Burlap Block
 tile.lime_burlap.name=Lime Burlap
 tile.lime_burlap_block.name=Lime Burlap Block
 tile.violet_burlap.name=Violet Burlap
-<<<<<<< HEAD
 tile.violet_burlap_block.name=Violet Burlap Block
-=======
-tile.lime_burlap_block.name=Lime Burlap Block
->>>>>>> 448772fe5ee8cdae8622de61ec681f92954ffc73
 tile.resin_burlap.name=Resin Burlap
 tile.resin_burlap_block.name=Resin Burlap Block
 tile.oily_burlap.name=Oily Burlap
@@ -73,8 +68,4 @@ tile.oily_dirt.name=Oily Dirt
 tile.resin_dirt.name=Resin Dirt
 tile.violet_dirt.name=Violet Dirt
 tile.lime_dirt.name=Lime Dirt
-<<<<<<< HEAD
 tile.covered_dirt.name=Covered Dirt
-=======
-tile.covered_dirt=Covered Dirt
->>>>>>> 448772fe5ee8cdae8622de61ec681f92954ffc73

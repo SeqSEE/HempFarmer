@@ -16,6 +16,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class VersionChecker implements Runnable {
@@ -23,7 +24,7 @@ public class VersionChecker implements Runnable {
     
     private static String latestRev;
     
-    public static void check(FMLPostInitializationEvent postEvent) {
+    public static void check(FMLPreInitializationEvent preEvent) {
     	if (HempFarmer.getUpdates == true){
     		HempFarmer.versionChecker = new VersionChecker();
         	Thread versionCheckThread = new Thread(HempFarmer.versionChecker);
@@ -35,7 +36,7 @@ public class VersionChecker implements Runnable {
     public void run() {
     	InputStream versionFile = null;
     	try{
-    		versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest-1.10").openStream();
+    		versionFile = new URL("https://raw.githubusercontent.com/SeqSEE/HempFarmer/master/latest-1.10.2").openStream();
     	} 
     	catch (MalformedURLException e) {
     		e.printStackTrace();
@@ -53,9 +54,8 @@ public class VersionChecker implements Runnable {
     		IOUtils.closeQuietly(versionFile);
     	}
     	HempFarmer.latest = latestRev;
-    	System.out.println("Latest " + Reference.NAME + " version:" + latestRev);
     	HempFarmer.isLatest = Reference.VER.equals(latestRev);
-    	String output = HempFarmer.isLatest == true ? "You are running the latest version." : "You are running:" + Reference.VER + "    You are running a different version!";
+    	String output = HempFarmer.isLatest == true ? "Recommended " + Reference.NAME + " version:" + latestRev : "Recommended " + Reference.NAME + " version:" + latestRev + " You are running a different version!";
     	System.out.println(output);        
     }
     

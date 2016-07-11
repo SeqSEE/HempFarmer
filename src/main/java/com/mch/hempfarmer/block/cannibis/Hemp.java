@@ -29,6 +29,10 @@ public class Hemp extends HFBlockCrops{
 			new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.9296875D, 1.0D),
 			new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0625, 1.0D)};
 	
+	
+
+	
+	
 
     public Hemp(String name) {
 		super(name);
@@ -59,11 +63,11 @@ public class Hemp extends HFBlockCrops{
     	if (!HempFarmer.drugs){
     		return HFItems.raw_hemp;
     	}
-    	Item crop;
     	Random random = new Random();
     	int x = random.nextInt(100) + 1;
-    	crop = x > 90 ? HFItems.bud : HFItems.raw_hemp;
-        return crop;
+    	this.crop = x > 90 ? HFItems.bud : HFItems.raw_hemp;
+    	this.cropName = this.crop.getRegistryName().toString().endsWith("bud") ? "bud" : "hemp";
+    	return this.crop;
     }
     
     
@@ -78,8 +82,14 @@ public class Hemp extends HFBlockCrops{
 
             for (int i = 0; i < 3 + fortune; ++i) {
                 if (rand.nextInt(2 * getMaxAge()) <= age) {
-                    ret.add(new ItemStack(this.getSeed(), 1));
-                    ret.add(new ItemStack(this.getCrop(), rand.nextInt(4)));
+                    ret.add(new ItemStack(this.getSeed(), this.seedsCropAmount));
+                    if (this.cropName == "bud"){
+                    	ret.add(new ItemStack(this.getCrop(), this.budAmount));
+                    }
+                    else {
+                    	ret.add(new ItemStack(this.getCrop(), this.hempAmount));
+                    }
+                    
                 }
             }
         }

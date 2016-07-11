@@ -45,21 +45,23 @@ public class HFWand extends HFItem{
 	
 	@Override
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		IBlockState state = world.getBlockState(pos);
-		IBlockState newState = null;
+		int blockID = world.getBlockState(pos).getBlock().getIdFromBlock(world.getBlockState(pos).getBlock());
+		IBlockState newState;
 		boolean changable = false;
-        if (state.getBlock().equals(Blocks.COBBLESTONE)){
-        	changable = true;
-        	newState = Blocks.GRAVEL.getDefaultState();
-        }
-        else if (state.getBlock().equals(Blocks.GRAVEL)){
-        	changable = true;
-       		newState = Blocks.SAND.getDefaultState();
-        }
-        else if (state.getBlock().equals(Blocks.SAND)){
-        	changable = true;
-        	newState = Blocks.CLAY.getDefaultState();
-        }
+		switch (blockID){
+		case 4: changable = true;
+				newState = Blocks.GRAVEL.getDefaultState();
+				break;
+		case 12: changable = true;
+				newState = Blocks.CLAY.getDefaultState();
+				break;
+		case 13: changable = true;
+				newState = Blocks.SAND.getDefaultState();
+				break;
+		default: changable = false;
+				newState = null;
+				break;
+		}
         if (changable && player.canPlayerEdit(pos, facing, stack)){
         	world.destroyBlock(pos, false);
         	world.setBlockState(pos, newState);

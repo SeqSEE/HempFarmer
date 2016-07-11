@@ -15,8 +15,8 @@ public class HFDrug extends Item {
 		this.setUnlocalizedName(name);
 		if (HempFarmer.drugs == true){
 			this.setCreativeTab(DrugsTab.HFDrugs);
-			addToItems(this);
 		}
+		addToItems(this);
 	}
 	
 	private void addToItems(Item item) {

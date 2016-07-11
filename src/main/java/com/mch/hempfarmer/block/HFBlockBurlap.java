@@ -17,6 +17,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
@@ -26,6 +27,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class HFBlockBurlap extends BlockBreakable {
 	
@@ -89,7 +91,14 @@ public class HFBlockBurlap extends BlockBreakable {
 	}
 	
 	private boolean canBlockStay(World world, BlockPos pos) {
-		return (world.getBlockState(pos.down()).isNormalCube());
+		boolean stays;
+		if (!isFullCube(world.getBlockState(pos))){
+			stays = world.getBlockState(pos.down()).isNormalCube();
+		}
+		else {
+			stays = true;
+		}
+		return stays;
     }
 	
 

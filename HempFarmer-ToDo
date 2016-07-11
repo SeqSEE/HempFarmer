@@ -1,4 +1,6 @@
 - Armor Effects (Particles and buffs)
 - Update Drug Effect visuals (Build custom shader?)
-- Tweak drugs effects (Mostly the joints and fall protection tweaks)
+- More wand uses
+- Tooltips
+- config sync(is it needed???)
 - Commands(At this point... change drugs, version and reload the config)?
