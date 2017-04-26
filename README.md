@@ -3,7 +3,7 @@
 <p><a href="https://minecraft.curseforge.com/projects/hempfarmer"><img src="https://github.com/MinecraftModDevelopment/HempFarmer/raw/gh-pages/images/HempFarmer-Curse.PNG" alt="HempFarmer on Curse" width="100" height="100"><a href="http://shruglabs.com/"><img src="https://github.com/MinecraftModDevelopment/HempFarmer/raw/gh-pages/images/ShrugLabs-Logo.PNG" alt="ShrugLabs" width="100" height="100" /></a><a href="https://minecraftmoddevelopment.github.io/"><img src="https://github.com/MinecraftModDevelopment/HempFarmer/raw/gh-pages/images/mmdgithub.png" alt=" alt=" width="100" height="100" /></a></p>
 
 ---
-__[Contributing]()__
+__[Contribute]()__
 
 __[Report Issues or Bugs](https://github.com/MinecraftModDevelopment/HempFarmer/issues)__
 
